@@ -1,6 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// import mongoose from 'mongoose';
 
-export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
-}
+export default async (req, res) => {
+  // await mongoose.connect(process.env.DB_LINK, {useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true})
+
+  res.statusCode = 200;
+  res.json({ name: 'John Doe' });
+};
