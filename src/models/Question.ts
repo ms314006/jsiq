@@ -31,5 +31,3 @@ export const schemaQuestion = new Schema({
   type: String,
   level: String,
 });
-
-// export default model<QuestionDocument>('Question', schemaQuestion);

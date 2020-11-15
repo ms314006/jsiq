@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "dbUpdate": "ts-node questions/dbLoader.ts"
   },
   "dependencies": {
     "mongoose": "^5.10.14",
@@ -17,12 +18,14 @@
     "@types/mongoose": "^5.10.0",
     "@types/node": "^14.14.7",
     "@types/react": "^16.9.56",
+    "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.1.2",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   }
 }

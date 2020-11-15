@@ -11,7 +11,7 @@ export default async (req, res) => {
       useFindAndModify: false,
       useUnifiedTopology: true,
       bufferCommands: false, // Disable mongoose buffering
-      bufferMaxEntries: 0, // and MongoDB driver buffering
+      bufferMaxEntries: 0, // and MongoDB driver buffering,
     });
 
     await dbConnection;
@@ -21,7 +21,7 @@ export default async (req, res) => {
     }
   }
 
-  const questions = await Question.find({});
+  const questions = await Question.find({}).select('id');
 
   res.status(200).json(questions);
 };
