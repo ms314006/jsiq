@@ -1,58 +1,45 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { Box, Code, Text, Link, VStack, Grid } from '@chakra-ui/react';
+import { Layout } from 'components/Layout';
+import { NextChakraLink } from '../components/NextChakraLink';
+import { Logo } from 'components/Logo';
+import {Chakra} from "Chakra";
 
-export default function Home() {
+interface Props {
+  cookies?: string;
+}
+
+export default function Home({ cookies }: Props) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/master/examples" className={styles.card}>
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <Chakra cookies={cookies}>
+      <Layout title="Next.js + TypeScript example">
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+            <VStack spacing={8}>
+              <Logo h="40vmin" pointerEvents="none" />
+              <Text>
+                Edit <Code fontSize="xl">pages/index.tsx</Code> and save to reload.
+                <br />
+                <br />
+                <NextChakraLink href="/properties" color="teal.500">
+                  View the properties
+                </NextChakraLink>{' '}
+                to see the Nextjs <Code fontSize="xl">&lt;Link&gt;</Code> in action
+              </Text>
+              <Link
+                color="teal.500"
+                fontSize="2xl"
+                href="https://chakra-ui.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Chakra
+              </Link>
+            </VStack>
+          </Grid>
+        </Box>
+      </Layout>
+    </Chakra>
   );
 }
+
+export { getServerSideProps } from '../Chakra';
