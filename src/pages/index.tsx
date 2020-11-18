@@ -10,8 +10,8 @@ export default function Home({ cookies }: Props) {
   return (
     <Chakra cookies={cookies}>
       <Layout>
-        <Box textAlign="center" fontSize="xl">
-          <Grid minH="calc(100vh - 4.5rem)" p={3} mt="4.5rem">
+        <Box textAlign="center" fontSize="xl" mt="4.5rem">
+          <Grid minH="calc(100vh - 4.5rem)" p={3} mt="100px">
             <VStack spacing={8}>
               <Heading as="h1">JavaScript Interview Questions</Heading>
 

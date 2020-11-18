@@ -19,10 +19,11 @@ export interface Question {
 
 export interface QuestionDocument extends Document {}
 
-export const schemaQuestion = new Schema({
+export const schemaQuestion = new Schema<QuestionDocument>({
   id: {
     type: String,
     required: true,
+    unique: true
   },
   title: {
     type: String,
