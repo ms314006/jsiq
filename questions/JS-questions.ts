@@ -13,27 +13,36 @@ export const q1: Question = {
     "function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = 'Lydia';\n  let age = 21;\n}\n\nsayHi();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Lydia` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Lydia` and `ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`ReferenceError` and `21`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`undefined` and `ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
     'Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven\'t defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.\n\nVariables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don\'t get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.',
-  references: ['https://developer.mozilla.org/en-US/docs/Glossary/Hoisting'],
+  references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -48,16 +57,22 @@ export const q2: Question = {
     'for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`0 1 2` and `0 1 2`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`0 1 2` and `3 3 3`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`3 3 3` and `0 1 2`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -65,6 +80,7 @@ export const q2: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -79,20 +95,28 @@ export const q3: Question = {
     'const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius,\n};\n\nconsole.log(shape.diameter());\nconsole.log(shape.perimeter());',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`20` and `62.83185307179586`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`20` and `NaN`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`20` and `63`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`NaN` and `63`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -100,6 +124,7 @@ export const q3: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -113,16 +138,22 @@ export const q4: Question = {
   code: "+true;\n!'Lydia';",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`1` and `false`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false` and `NaN`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`false` and `false`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -130,6 +161,7 @@ export const q4: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -144,20 +176,28 @@ export const q5: Question = {
     "const bird = {\n  size: 'small',\n};\n\nconst mouse = {\n  name: 'Mickey',\n  small: true,\n};",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`mouse.bird.size` is not valid',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`mouse[bird.size]` is not valid',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`mouse[bird["size"]]` is not valid',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'All of them are valid',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -165,6 +205,7 @@ export const q5: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -179,24 +220,34 @@ export const q6: Question = {
     "let c = { greeting: 'Hey!' };\nlet d;\n\nd = c;\nc.greeting = 'Hello';\nconsole.log(d.greeting);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`Hello`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Hey!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 5,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -204,6 +255,7 @@ export const q6: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -218,20 +270,28 @@ export const q7: Question = {
     'let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`true` `false` `true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false` `false` `true`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`true` `false` `false`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`false` `true` `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -239,6 +299,7 @@ export const q7: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -253,20 +314,28 @@ export const q8: Question = {
     "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = 'green' } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: 'purple' });\nconsole.log(freddie.colorChange('orange'));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`orange`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`purple`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`green`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -274,6 +343,7 @@ export const q8: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -287,16 +357,22 @@ export const q9: Question = {
   code: 'let greeting;\ngreetign = {}; // Typo!\nconsole.log(greetign);',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`{}`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`ReferenceError: greetign is not defined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -304,6 +380,7 @@ export const q9: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -317,20 +394,28 @@ export const q10: Question = {
   code: "function bark() {\n  console.log('Woof!');\n}\n\nbark.animal = 'dog';",
   options: [
     {
+      id: 1,
       correct: true,
       body: 'Nothing, this is totally fine!',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`SyntaxError`. You cannot add properties to a function this way.',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"Woof"` gets logged.',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -338,6 +423,7 @@ export const q10: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -352,20 +438,28 @@ export const q11: Question = {
     "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person('Lydia', 'Hallie');\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Lydia Hallie`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined` `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -373,6 +467,7 @@ export const q11: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -387,21 +482,29 @@ export const q12: Question = {
     "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person('Lydia', 'Hallie');\nconst sarah = Person('Sarah', 'Smith');\n\nconsole.log(lydia);\nconsole.log(sarah);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body:
         '`Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -409,6 +512,7 @@ export const q12: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -422,20 +526,28 @@ export const q13: Question = {
   code: '',
   options: [
     {
+      id: 1,
       correct: false,
       body: 'Target > Capturing > Bubbling',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'Bubbling > Target > Capturing',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'Target > Bubbling > Capturing',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: 'Capturing > Target > Bubbling',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -443,6 +555,7 @@ export const q13: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -456,12 +569,16 @@ export const q14: Question = {
   code: '',
   options: [
     {
+      id: 1,
       correct: false,
       body: 'true',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: 'false',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -469,6 +586,7 @@ export const q14: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -482,20 +600,28 @@ export const q15: Question = {
   code: "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, '2');",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`NaN`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`"12"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`3`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -503,6 +629,7 @@ export const q15: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -516,20 +643,28 @@ export const q16: Question = {
   code: 'let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`1` `1` `2`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`1` `2` `2`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`0` `2` `2`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`0` `1` `2`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -537,6 +672,7 @@ export const q16: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -551,16 +687,22 @@ export const q17: Question = {
     "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = 'Lydia';\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Lydia"` `21` `["", " is ", " years old"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`["", " is ", " years old"]` `"Lydia"` `21`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"Lydia"` `["", " is ", " years old"]` `21`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -568,6 +710,7 @@ export const q17: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -582,16 +725,22 @@ export const q18: Question = {
     "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log('You are an adult!');\n  } else if (data == { age: 18 }) {\n    console.log('You are still an adult.');\n  } else {\n    console.log(`Hmm.. You don't have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`You are an adult!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`You are still an adult.`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: "`Hmm.. You don't have an age I guess`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -599,6 +748,7 @@ export const q18: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -612,20 +762,28 @@ export const q19: Question = {
   code: 'function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"number"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"array"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`"object"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"NaN"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -633,6 +791,7 @@ export const q19: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -646,20 +805,28 @@ export const q20: Question = {
   code: "function getAge() {\n  'use strict';\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`21`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -667,6 +834,7 @@ export const q20: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -680,20 +848,28 @@ export const q21: Question = {
   code: "const sum = eval('10*10+5');",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`105`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"105"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"10*10+5"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -701,6 +877,7 @@ export const q21: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -714,20 +891,28 @@ export const q22: Question = {
   code: "sessionStorage.setItem('cool_secret', 123);",
   options: [
     {
+      id: 1,
       correct: false,
       body: "Forever, the data doesn't get lost.",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: 'When the user closes the tab.',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'When the user closes the entire browser, not only the tab.',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'When the user shuts off their computer.',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -735,6 +920,7 @@ export const q22: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -748,20 +934,28 @@ export const q23: Question = {
   code: 'var num = 8;\nvar num = 10;\n\nconsole.log(num);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`8`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`10`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -769,6 +963,7 @@ export const q23: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -783,20 +978,28 @@ export const q24: Question = {
     "const obj = { 1: 'a', 2: 'b', 3: 'c' };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty('1');\nobj.hasOwnProperty(1);\nset.has('1');\nset.has(1);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`false` `true` `false` `true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false` `true` `true` `true`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`true` `true` `false` `true`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`true` `true` `true` `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -804,6 +1007,7 @@ export const q24: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -817,20 +1021,28 @@ export const q25: Question = {
   code: "const obj = { a: 'one', b: 'two', a: 'three' };\nconsole.log(obj);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ a: "one", b: "two" }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{ b: "two", a: "three" }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`{ a: "three", b: "two" }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -838,6 +1050,7 @@ export const q25: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -852,16 +1065,22 @@ export const q26: Question = {
   code: '',
   options: [
     {
+      id: 1,
       correct: true,
       body: 'true',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'false',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'it depends',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -869,6 +1088,7 @@ export const q26: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -882,26 +1102,35 @@ export const q27: Question = {
   code: 'for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`1` `2`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`1` `2` `3`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`1` `2` `4`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`1` `3` `4`',
+      answerCount: 0,
     },
   ],
   explanation: 'The `continue` statement skips an iteration if a certain condition returns `true`.',
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -916,20 +1145,28 @@ export const q28: Question = {
     "String.prototype.giveLydiaPizza = () => {\n  return 'Just give Lydia pizza already!';\n};\n\nconst name = 'Lydia';\n\nname.giveLydiaPizza();",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`"Just give Lydia pizza already!"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`TypeError: not a function`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -937,6 +1174,7 @@ export const q28: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -951,20 +1189,28 @@ export const q29: Question = {
     "const a = {};\nconst b = { key: 'b' };\nconst c = { key: 'c' };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`123`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`456`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -972,6 +1218,7 @@ export const q29: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -986,20 +1233,28 @@ export const q30: Question = {
     "const foo = () => console.log('First');\nconst bar = () => setTimeout(() => console.log('Second'));\nconst baz = () => console.log('Third');\n\nbar();\nfoo();\nbaz();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`First` `Second` `Third`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`First` `Third` `Second`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Second` `First` `Third`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Second` `Third` `First`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1007,6 +1262,7 @@ export const q30: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1021,20 +1277,28 @@ export const q31: Question = {
     '<div onclick="console.log(\'first div\')">\n  <div onclick="console.log(\'second div\')">\n    <button onclick="console.log(\'button\')">\n      Click!\n    </button>\n  </div>\n</div>',
   options: [
     {
+      id: 1,
       correct: false,
       body: 'Outer `div`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'Inner `div`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`button`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'An array of all nested elements.',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1042,6 +1306,7 @@ export const q31: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1056,20 +1321,28 @@ export const q32: Question = {
     '<div onclick="console.log(\'div\')">\n  <p onclick="console.log(\'p\')">\n    Click here!\n  </p>\n</div>',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`p` `div`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`div` `p`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`p`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`div`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1077,6 +1350,7 @@ export const q32: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1091,20 +1365,28 @@ export const q33: Question = {
     "const person = { name: 'Lydia' };\n\nfunction sayHi(age) {\n  return `${this.name} is ${age}`;\n}\n\nconsole.log(sayHi.call(person, 21));\nconsole.log(sayHi.bind(person, 21));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`undefined is 21` `Lydia is 21`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`function` `function`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Lydia is 21` `Lydia is 21`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`Lydia is 21` `function`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1112,6 +1394,7 @@ export const q33: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1125,20 +1408,28 @@ export const q34: Question = {
   code: 'function sayHi() {\n  return (() => 0)();\n}\n\nconsole.log(typeof sayHi());',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"object"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"number"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"function"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"undefined"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1146,6 +1437,7 @@ export const q34: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1159,20 +1451,28 @@ export const q35: Question = {
   code: "0;\nnew Number(0);\n('');\n(' ');\nnew Boolean(false);\nundefined;",
   options: [
     {
+      id: 1,
       correct: true,
       body: "`0`, `''`, `undefined`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: "`0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`0`, `''`, `new Boolean(false)`, `undefined`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'All of them are falsy',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1180,6 +1480,7 @@ export const q35: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1193,26 +1494,35 @@ export const q36: Question = {
   code: 'console.log(typeof typeof 1);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"number"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"string"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"object"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"undefined"`',
+      answerCount: 0,
     },
   ],
   explanation: '`typeof 1` returns `"number"`.\n`typeof "number"` returns `"string"`',
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1226,20 +1536,28 @@ export const q37: Question = {
   code: 'const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[1, 2, 3, 7 x null, 11]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[1, 2, 3, 11]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`[1, 2, 3, 7 x empty, 11]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1247,6 +1565,7 @@ export const q37: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1261,20 +1580,28 @@ export const q38: Question = {
     '(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`1` `undefined` `2`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`undefined` `undefined` `undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`1` `1` `2`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`1` `undefined` `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1282,6 +1609,7 @@ export const q38: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1295,20 +1623,28 @@ export const q39: Question = {
   code: '',
   options: [
     {
+      id: 1,
       correct: true,
       body: 'primitive or object',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'function or object',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'trick question! only objects',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'number or object',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1316,6 +1652,7 @@ export const q39: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1330,20 +1667,28 @@ export const q40: Question = {
     '[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2],\n);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[0, 1, 2, 3, 1, 2]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[6, 1, 2]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`[1, 2, 0, 1, 2, 3]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`[1, 2, 6]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1351,6 +1696,7 @@ export const q40: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1364,20 +1710,28 @@ export const q41: Question = {
   code: "!!null;\n!!'';\n!!1;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`false` `true` `false`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`false` `false` `true`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`false` `true` `true`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`true` `true` `false`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1385,6 +1739,7 @@ export const q41: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1398,20 +1753,28 @@ export const q42: Question = {
   code: "setInterval(() => console.log('Hi'), 1000);",
   options: [
     {
+      id: 1,
       correct: true,
       body: 'a unique id',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'the amount of milliseconds specified',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'the passed function',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1419,6 +1782,7 @@ export const q42: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1432,20 +1796,28 @@ export const q43: Question = {
   code: "[...'Lydia'];",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`["L", "y", "d", "i", "a"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`["Lydia"]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[[], "Lydia"]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`[["L", "y", "d", "i", "a"]]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1453,6 +1825,7 @@ export const q43: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1467,20 +1840,28 @@ export const q44: Question = {
     'function* generator(i) {\n  yield i;\n  yield i * 2;\n}\n\nconst gen = generator(10);\n\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[0, 10], [10, 20]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`20, 20`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`10, 20`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`0, 10 and 10, 20`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1488,6 +1869,7 @@ export const q44: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1502,20 +1884,28 @@ export const q45: Question = {
     "const firstPromise = new Promise((res, rej) => {\n  setTimeout(res, 500, 'one');\n});\n\nconst secondPromise = new Promise((res, rej) => {\n  setTimeout(res, 100, 'two');\n});\n\nPromise.race([firstPromise, secondPromise]).then(res => console.log(res));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"one"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"two"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"two" "one"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"one" "two"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1523,6 +1913,7 @@ export const q45: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1537,20 +1928,28 @@ export const q46: Question = {
     "let person = { name: 'Lydia' };\nconst members = [person];\nperson = null;\n\nconsole.log(members);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`null`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[null]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[{}]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`[{ name: "Lydia" }]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1558,6 +1957,7 @@ export const q46: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1572,20 +1972,28 @@ export const q47: Question = {
     "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nfor (const item in person) {\n  console.log(item);\n}",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ name: "Lydia" }, { age: 21 }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"name", "age"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"Lydia", 21`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`["name", "Lydia"], ["age", 21]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1593,6 +2001,7 @@ export const q47: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1606,20 +2015,28 @@ export const q48: Question = {
   code: "console.log(3 + 4 + '5');",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"345"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"75"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`12`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"12"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1627,6 +2044,7 @@ export const q48: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1640,20 +2058,28 @@ export const q49: Question = {
   code: "const num = parseInt('7*6', 10);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`42`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"42"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`7`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`NaN`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1661,6 +2087,7 @@ export const q49: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1674,20 +2101,28 @@ export const q50: Question = {
   code: "[1, 2, 3].map(num => {\n  if (typeof num === 'number') return;\n  return num * 2;\n});",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[null, null, null]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`[undefined, undefined, undefined]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`[ 3 x empty ]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1695,6 +2130,7 @@ export const q50: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1709,20 +2145,28 @@ export const q51: Question = {
     "function getInfo(member, year) {\n  member.name = 'Lydia';\n  year = '1998';\n}\n\nconst person = { name: 'Sarah' };\nconst birthYear = '1997';\n\ngetInfo(person, birthYear);\n\nconsole.log(person, birthYear);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`{ name: "Lydia" }, "1997"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{ name: "Sarah" }, "1998"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ name: "Lydia" }, "1998"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`{ name: "Sarah" }, "1997"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1730,6 +2174,7 @@ export const q51: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1744,20 +2189,28 @@ export const q52: Question = {
     "function greeting() {\n  throw 'Hello world!';\n}\n\nfunction sayHi() {\n  try {\n    const data = greeting();\n    console.log('It worked!', data);\n  } catch (e) {\n    console.log('Oh no an error:', e);\n  }\n}\n\nsayHi();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`It worked! Hello world!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Oh no an error: undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`SyntaxError: can only throw Error objects`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`Oh no an error: Hello world!`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1765,6 +2218,7 @@ export const q52: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1779,20 +2233,28 @@ export const q53: Question = {
     "function Car() {\n  this.make = 'Lamborghini';\n  return { make: 'Maserati' };\n}\n\nconst myCar = new Car();\nconsole.log(myCar.make);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Lamborghini"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"Maserati"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1800,6 +2262,7 @@ export const q53: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1813,20 +2276,28 @@ export const q54: Question = {
   code: '(() => {\n  let x = (y = 10);\n})();\n\nconsole.log(typeof x);\nconsole.log(typeof y);',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`"undefined", "number"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"number", "number"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"object", "number"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"number", "undefined"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1834,6 +2305,7 @@ export const q54: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1848,20 +2320,28 @@ export const q55: Question = {
     "class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nDog.prototype.bark = function() {\n  console.log(`Woof I am ${this.name}`);\n};\n\nconst pet = new Dog('Mara');\n\npet.bark();\n\ndelete Dog.prototype.bark;\n\npet.bark();",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`"Woof I am Mara"`, `TypeError`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"Woof I am Mara"`, `"Woof I am Mara"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"Woof I am Mara"`, `undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`TypeError`, `TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1869,6 +2349,7 @@ export const q55: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1882,20 +2363,28 @@ export const q56: Question = {
   code: 'const set = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(set);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[1, 1, 2, 3, 4]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[1, 2, 3, 4]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{1, 1, 2, 3, 4}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`{1, 2, 3, 4}`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1903,6 +2392,7 @@ export const q56: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1916,20 +2406,28 @@ export const q57: Question = {
   code: '// counter.js\nlet counter = 10;\nexport default counter;',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`10`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`11`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Error`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`NaN`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1937,6 +2435,7 @@ export const q57: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1950,20 +2449,28 @@ export const q58: Question = {
   code: "const name = 'Lydia';\nage = 21;\n\nconsole.log(delete name);\nconsole.log(delete age);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`false`, `true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"Lydia"`, `21`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`true`, `true`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`, `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -1971,6 +2478,7 @@ export const q58: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -1984,20 +2492,28 @@ export const q59: Question = {
   code: 'const numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\n\nconsole.log(y);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[[1, 2, 3, 4, 5]]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[1, 2, 3, 4, 5]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`1`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`[1]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2005,6 +2521,7 @@ export const q59: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2019,20 +2536,28 @@ export const q60: Question = {
     "const user = { name: 'Lydia', age: 21 };\nconst admin = { admin: true, ...user };\n\nconsole.log(admin);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ admin: true, user: { name: "Lydia", age: 21 } }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`{ admin: true, name: "Lydia", age: 21 }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ admin: true, user: ["Lydia", 21] }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`{ admin: true }`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2040,6 +2565,7 @@ export const q60: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2054,20 +2580,28 @@ export const q61: Question = {
     "const person = { name: 'Lydia' };\n\nObject.defineProperty(person, 'age', { value: 21 });\n\nconsole.log(person);\nconsole.log(Object.keys(person));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ name: "Lydia", age: 21 }`, `["name", "age"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`{ name: "Lydia", age: 21 }`, `["name"]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ name: "Lydia"}`, `["name", "age"]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`{ name: "Lydia"}`, `["age"]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2075,6 +2609,7 @@ export const q61: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2089,20 +2624,28 @@ export const q62: Question = {
     "const settings = {\n  username: 'lydiahallie',\n  level: 19,\n  health: 90,\n};\n\nconst data = JSON.stringify(settings, ['level', 'health']);\nconsole.log(data);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`"{"level":19, "health":90}"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"{"username": "lydiahallie"}"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"["level", "health"]"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"{"username": "lydiahallie", "level":19, "health":90}"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2110,6 +2653,7 @@ export const q62: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2124,20 +2668,28 @@ export const q63: Question = {
     'let num = 10;\n\nconst increaseNumber = () => num++;\nconst increasePassedNumber = number => number++;\n\nconst num1 = increaseNumber();\nconst num2 = increasePassedNumber(num1);\n\nconsole.log(num1);\nconsole.log(num2);',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`10`, `10`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`10`, `11`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`11`, `11`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`11`, `12`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2145,6 +2697,7 @@ export const q63: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2159,20 +2712,28 @@ export const q64: Question = {
     'const value = { number: 10 };\n\nconst multiply = (x = { ...value }) => {\n  console.log((x.number *= 2));\n};\n\nmultiply();\nmultiply();\nmultiply(value);\nmultiply(value);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`20`, `40`, `80`, `160`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`20`, `40`, `20`, `40`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`20`, `20`, `20`, `40`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`NaN`, `NaN`, `20`, `40`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2180,6 +2741,7 @@ export const q64: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2193,20 +2755,28 @@ export const q65: Question = {
   code: '[1, 2, 3, 4].reduce((x, y) => console.log(x, y));',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`1` `2` and `3` `3` and `6` `4`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`1` `2` and `2` `3` and `3` `4`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`1` `2` and `undefined` `3` and `undefined` `4`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2214,6 +2784,7 @@ export const q65: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2228,20 +2799,28 @@ export const q66: Question = {
     'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n};\n\nclass Labrador extends Dog {\n  // 1\n  constructor(name, size) {\n    this.size = size;\n  }\n  // 2\n  constructor(name, size) {\n    super(name);\n    this.size = size;\n  }\n  // 3\n  constructor(size) {\n    super(name);\n    this.size = size;\n  }\n  // 4\n  constructor(name, size) {\n    this.name = name;\n    this.size = size;\n  }\n\n};',
   options: [
     {
+      id: 1,
       correct: false,
       body: '1',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '2',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '3',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '4',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2249,6 +2828,7 @@ export const q66: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2263,20 +2843,28 @@ export const q67: Question = {
     "// index.js\nconsole.log('running index.js');\nimport { sum } from './sum.js';\nconsole.log(sum(1, 2));\n\n// sum.js\nconsole.log('running sum.js');\nexport const sum = (a, b) => a + b;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`running index.js`, `running sum.js`, `3`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`running sum.js`, `running index.js`, `3`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`running sum.js`, `3`, `running index.js`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`running index.js`, `undefined`, `running sum.js`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2284,6 +2872,7 @@ export const q67: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2298,20 +2887,28 @@ export const q68: Question = {
     "console.log(Number(2) === Number(2));\nconsole.log(Boolean(false) === Boolean(false));\nconsole.log(Symbol('foo') === Symbol('foo'));",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`true`, `true`, `false`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false`, `true`, `false`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`true`, `false`, `true`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`true`, `true`, `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2319,6 +2916,7 @@ export const q68: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2333,22 +2931,30 @@ export const q69: Question = {
     "const name = 'Lydia Hallie';\nconsole.log(name.padStart(13));\nconsole.log(name.padStart(2));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Lydia Hallie"`, `"Lydia Hallie"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body:
         '`" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body:
         '`" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"Lydia Hallie"`, `"Lyd"`,',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2356,6 +2962,7 @@ export const q69: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2369,20 +2976,28 @@ export const q70: Question = {
   code: "console.log('🥑' + '💻');",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`"🥑💻"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`257548`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'A string containing their code points',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'Error',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2390,6 +3005,7 @@ export const q70: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2404,20 +3020,28 @@ export const q71: Question = {
     "function* startGame() {\n  const answer = yield 'Do you love JavaScript?';\n  if (answer !== 'Yes') {\n    return \"Oh wow... Guess we're gone here\";\n  }\n  return 'JavaScript loves you back ❤️';\n}\n\nconst game = startGame();\nconsole.log(/* 1 */); // Do you love JavaScript?\nconsole.log(/* 2 */); // JavaScript loves you back ❤️",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`game.next("Yes").value` and `game.next().value`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`game.next.value("Yes")` and `game.next.value()`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`game.next().value` and `game.next("Yes").value`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`game.next.value()` and `game.next.value("Yes")`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2425,6 +3049,7 @@ export const q71: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2438,20 +3063,28 @@ export const q72: Question = {
   code: 'console.log(String.raw`Hello\\nworld`);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Hello world!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Hello` <br />&nbsp; &nbsp; &nbsp;`world`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Hello\\nworld`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Hello\\n` <br /> &nbsp; &nbsp; &nbsp;`world`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2459,6 +3092,7 @@ export const q72: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2473,20 +3107,28 @@ export const q73: Question = {
     "async function getData() {\n  return await Promise.resolve('I made it!');\n}\n\nconst data = getData();\nconsole.log(data);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"I made it!"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Promise {<resolved>: "I made it!"}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Promise {<pending>}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2494,6 +3136,7 @@ export const q73: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2508,20 +3151,28 @@ export const q74: Question = {
     "function addToList(item, list) {\n  return list.push(item);\n}\n\nconst result = addToList('apple', ['banana']);\nconsole.log(result);",
   options: [
     {
+      id: 1,
       correct: false,
       body: "`['apple', 'banana']`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`2`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`true`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2529,6 +3180,7 @@ export const q74: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2543,20 +3195,28 @@ export const q75: Question = {
     'const box = { x: 10, y: 20 };\n\nObject.freeze(box);\n\nconst shape = box;\nshape.x = 100;\n\nconsole.log(shape);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ x: 100, y: 20 }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`{ x: 10, y: 20 }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ x: 100 }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2564,6 +3224,7 @@ export const q75: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2577,20 +3238,28 @@ export const q76: Question = {
   code: "const { name: myName } = { name: 'Lydia' };\n\nconsole.log(name);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Lydia"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"myName"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2598,6 +3267,7 @@ export const q76: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2611,12 +3281,16 @@ export const q77: Question = {
   code: 'function sum(a, b) {\n  return a + b;\n}',
   options: [
     {
+      id: 1,
       correct: true,
       body: 'Yes',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'No',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2624,6 +3298,7 @@ export const q77: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2638,20 +3313,28 @@ export const q78: Question = {
     'const add = () => {\n  const cache = {};\n  return num => {\n    if (num in cache) {\n      return `From cache! ${cache[num]}`;\n    } else {\n      const result = num + 10;\n      cache[num] = result;\n      return `Calculated! ${result}`;\n    }\n  };\n};\n\nconst addFunction = add();\nconsole.log(addFunction(10));\nconsole.log(addFunction(10));\nconsole.log(addFunction(5 * 2));',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Calculated! 20` `Calculated! 20` `Calculated! 20`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Calculated! 20` `From cache! 20` `Calculated! 20`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Calculated! 20` `From cache! 20` `From cache! 20`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Calculated! 20` `From cache! 20` `Error`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2659,6 +3342,7 @@ export const q78: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2673,20 +3357,28 @@ export const q79: Question = {
     "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];\n\nfor (let item in myLifeSummedUp) {\n  console.log(item);\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item);\n}",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`0` `1` `2` `3` and `"☕"` `"💻"` `"🍷"` `"🍫"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"☕"` `"💻"` `"🍷"` `"🍫"` and `"☕"` `"💻"` `"🍷"` `"🍫"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2694,6 +3386,7 @@ export const q79: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2707,20 +3400,28 @@ export const q80: Question = {
   code: 'const list = [1 + 2, 1 * 2, 1 / 2];\nconsole.log(list);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`["1 + 2", "1 * 2", "1 / 2"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`["12", 2, 0.5]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`[3, 2, 0.5]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`[1, 1, 1]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2728,6 +3429,7 @@ export const q80: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2741,20 +3443,28 @@ export const q81: Question = {
   code: 'function sayHi(name) {\n  return `Hi there, ${name}`;\n}\n\nconsole.log(sayHi());',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Hi there,`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`Hi there, undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Hi there, null`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2762,6 +3472,7 @@ export const q81: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2776,20 +3487,28 @@ export const q82: Question = {
     "var status = '😎';\n\nsetTimeout(() => {\n  const status = '😍';\n\n  const data = {\n    status: '🥑',\n    getStatus() {\n      return this.status;\n    },\n  };\n\n  console.log(data.getStatus());\n  console.log(data.getStatus.call(this));\n}, 0);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"🥑"` and `"😍"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"🥑"` and `"😎"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`"😍"` and `"😎"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"😎"` and `"😎"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2797,6 +3516,7 @@ export const q82: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2811,20 +3531,28 @@ export const q83: Question = {
     "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nlet city = person.city;\ncity = 'Amsterdam';\n\nconsole.log(person);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`{ name: "Lydia", age: 21 }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{ name: "Lydia", age: 21, city: "Amsterdam" }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ name: "Lydia", age: 21, city: undefined }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"Amsterdam"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2832,6 +3560,7 @@ export const q83: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2846,20 +3575,28 @@ export const q84: Question = {
     'function checkAge(age) {\n  if (age < 18) {\n    const message = "Sorry, you\'re too young.";\n  } else {\n    const message = "Yay! You\'re old enough!";\n  }\n\n  return message;\n}\n\nconsole.log(checkAge(21));',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Sorry, you\'re too young."`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"Yay! You\'re old enough!"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2867,6 +3604,7 @@ export const q84: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2881,20 +3619,28 @@ export const q85: Question = {
     "fetch('https://www.website.com/api/user/1')\n  .then(res => res.json())\n  .then(res => console.log(res));",
   options: [
     {
+      id: 1,
       correct: false,
       body: 'The result of the `fetch` method.',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'The result of the second invocation of the `fetch` method.',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: 'The result of the callback in the previous `.then()`.',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'It would always be undefined.',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2902,6 +3648,7 @@ export const q85: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2916,20 +3663,28 @@ export const q86: Question = {
   code: 'function getName(name) {\n  const hasName = //\n}',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`!!name`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`name`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`new Boolean(name)`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`name.length`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2937,6 +3692,7 @@ export const q86: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2950,20 +3706,28 @@ export const q87: Question = {
   code: "console.log('I want pizza'[0]);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"""`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"I"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -2971,6 +3735,7 @@ export const q87: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -2984,20 +3749,28 @@ export const q88: Question = {
   code: 'function sum(num1, num2 = num1) {\n  console.log(num1 + num2);\n}\n\nsum(10);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`NaN`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`20`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3005,6 +3778,7 @@ export const q88: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3019,20 +3793,28 @@ export const q89: Question = {
     "// module.js\nexport default () => 'Hello world';\nexport const name = 'Lydia';\n\n// index.js\nimport * as data from './module';\n\nconsole.log(data);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`{ default: function default(), name: "Lydia" }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{ default: function default() }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ default: "Hello world", name: "Lydia" }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'Global object of `module.js`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3040,6 +3822,7 @@ export const q89: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3054,20 +3837,28 @@ export const q90: Question = {
     "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nconst member = new Person('John');\nconsole.log(typeof member);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"class"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"function"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`"object"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"string"`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3075,6 +3866,7 @@ export const q90: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3088,20 +3880,28 @@ export const q91: Question = {
   code: 'let newList = [1, 2, 3].push(4);\n\nconsole.log(newList.push(5));',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`[1, 2, 3, 4, 5]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[1, 2, 3, 5]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[1, 2, 3, 4]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`Error`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3109,6 +3909,7 @@ export const q91: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3123,20 +3924,28 @@ export const q92: Question = {
     "function giveLydiaPizza() {\n  return 'Here is pizza!';\n}\n\nconst giveLydiaChocolate = () =>\n  \"Here's chocolate... now go hit the gym already.\";\n\nconsole.log(giveLydiaPizza.prototype);\nconsole.log(giveLydiaChocolate.prototype);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ constructor: ...}` `{ constructor: ...}`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{}` `{ constructor: ...}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ constructor: ...}` `{}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`{ constructor: ...}` `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3144,6 +3953,7 @@ export const q92: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3158,20 +3968,28 @@ export const q93: Question = {
     "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nfor (const [x, y] of Object.entries(person)) {\n  console.log(x, y);\n}",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`name` `Lydia` and `age` `21`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`["name", "Lydia"]` and `["age", 21]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`["name", "age"]` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Error`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3179,6 +3997,7 @@ export const q93: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3193,20 +4012,28 @@ export const q94: Question = {
     'function getItems(fruitList, ...args, favoriteFruit) {\n  return [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems(["banana", "apple"], "pear", "orange")',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`["banana", "apple", "pear", "orange"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[["banana", "apple"], "pear", "orange"]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`["banana", "apple", ["pear"], "orange"]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3214,6 +4041,7 @@ export const q94: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3228,20 +4056,28 @@ export const q95: Question = {
     "function nums(a, b) {\n  if (a > b) console.log('a is bigger');\n  else console.log('b is bigger');\n  return\n  a + b;\n}\n\nconsole.log(nums(4, 2));\nconsole.log(nums(1, 2));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`a is bigger`, `6` and `b is bigger`, `3`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`a is bigger`, `undefined` and `b is bigger`, `undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3249,6 +4085,7 @@ export const q95: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3263,20 +4100,28 @@ export const q96: Question = {
     "class Person {\n  constructor() {\n    this.name = 'Lydia';\n  }\n}\n\nPerson = class AnotherPerson {\n  constructor() {\n    this.name = 'Sarah';\n  }\n};\n\nconst member = new Person();\nconsole.log(member.name);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"Lydia"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`"Sarah"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Error: cannot redeclare Person`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3284,6 +4129,7 @@ export const q96: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3298,20 +4144,28 @@ export const q97: Question = {
     "const info = {\n  [Symbol('a')]: 'b',\n};\n\nconsole.log(info);\nconsole.log(Object.keys(info));",
   options: [
     {
+      id: 1,
       correct: false,
       body: "`{Symbol('a'): 'b'}` and `[\"{Symbol('a')\"]`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{}` and `[]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ a: "b" }` and `["a"]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: "`{Symbol('a'): 'b'}` and `[]`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3319,6 +4173,7 @@ export const q97: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3333,20 +4188,28 @@ export const q98: Question = {
     'const getList = ([x, ...y]) => [x, y]\nconst getUser = user => { name: user.name, age: user.age }\n\nconst list = [1, 2, 3, 4]\nconst user = { name: "Lydia", age: 21 }\n\nconsole.log(getList(list))\nconsole.log(getUser(user))',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`[1, [2, 3, 4]]` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Error` and `{ name: "Lydia", age: 21 }`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3354,6 +4217,7 @@ export const q98: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3367,20 +4231,28 @@ export const q99: Question = {
   code: "const name = 'Lydia';\n\nconsole.log(name());",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3388,6 +4260,7 @@ export const q99: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3402,20 +4275,28 @@ export const q100: Question = {
     "// 🎉✨ This is my 100th question! ✨🎉\n\nconst output = `${[] && 'Im'}possible!\nYou should${'' && `n't`} see a therapist after so much JavaScript lol`;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`possible! You should see a therapist after so much JavaScript lol`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`Impossible! You should see a therapist after so much JavaScript lol`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`possible! You shouldn't see a therapist after so much JavaScript lol`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "`Impossible! You shouldn't see a therapist after so much JavaScript lol`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3423,6 +4304,7 @@ export const q100: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3437,20 +4319,28 @@ export const q101: Question = {
     "const one = false || {} || null;\nconst two = null || false || '';\nconst three = [] || 0 || true;\n\nconsole.log(one, two, three);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`false` `null` `[]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`null` `""` `true`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`{}` `""` `[]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`null` `null` `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3458,6 +4348,7 @@ export const q101: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3472,20 +4363,28 @@ export const q102: Question = {
     "const myPromise = () => Promise.resolve('I have resolved!');\n\nfunction firstFunction() {\n  myPromise().then(res => console.log(res));\n  console.log('second');\n}\n\nasync function secondFunction() {\n  console.log(await myPromise());\n  console.log('second');\n}\n\nfirstFunction();\nsecondFunction();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`I have resolved!`, `second` and `I have resolved!`, `second`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`second`, `I have resolved!` and `second`, `I have resolved!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`I have resolved!`, `second` and `second`, `I have resolved!`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`second`, `I have resolved!` and `I have resolved!`, `second`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3493,6 +4392,7 @@ export const q102: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3507,20 +4407,28 @@ export const q103: Question = {
     "const set = new Set();\n\nset.add(1);\nset.add('Lydia');\nset.add({ name: 'Lydia' });\n\nfor (let item of set) {\n  console.log(item + 2);\n}",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`3`, `NaN`, `NaN`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`3`, `7`, `NaN`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`3`, `Lydia2`, `[object Object]2`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`"12"`, `Lydia2`, `[object Object]2`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3528,6 +4436,7 @@ export const q103: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3541,20 +4450,28 @@ export const q104: Question = {
   code: 'Promise.resolve(5);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`5`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Promise {<pending>: 5}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Promise {<fulfilled>: 5}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Error`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3562,6 +4479,7 @@ export const q104: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3576,20 +4494,28 @@ export const q105: Question = {
     "function compareMembers(person1, person2 = person) {\n  if (person1 !== person2) {\n    console.log('Not the same!');\n  } else {\n    console.log('They are the same!');\n  }\n}\n\nconst person = { name: 'Lydia' };\n\ncompareMembers(person);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Not the same!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`They are the same!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3597,6 +4523,7 @@ export const q105: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3611,20 +4538,28 @@ export const q106: Question = {
     "const colorConfig = {\n  red: true,\n  blue: false,\n  green: true,\n  black: true,\n  yellow: false,\n};\n\nconst colors = ['pink', 'red', 'blue'];\n\nconsole.log(colorConfig.colors[1]);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3632,6 +4567,7 @@ export const q106: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3645,12 +4581,16 @@ export const q107: Question = {
   code: "console.log('❤️' === '❤️');",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`false`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3658,6 +4598,7 @@ export const q107: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3672,20 +4613,28 @@ export const q108: Question = {
     "const emojis = ['✨', '🥑', '😍'];\n\nemojis.map(x => x + '✨');\nemojis.filter(x => x !== '🥑');\nemojis.find(x => x !== '🥑');\nemojis.reduce((acc, cur) => acc + '✨');\nemojis.slice(1, 2, '✨');\nemojis.splice(1, 2, '✨');",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`All of them`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`map` `reduce` `slice` `splice`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`map` `slice` `splice`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`splice`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3693,6 +4642,7 @@ export const q108: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3707,20 +4657,28 @@ export const q109: Question = {
     "const food = ['🍕', '🍫', '🥑', '🍔'];\nconst info = { favoriteFood: food[0] };\n\ninfo.favoriteFood = '🍝';\n\nconsole.log(food);",
   options: [
     {
+      id: 1,
       correct: true,
       body: "`['🍕', '🍫', '🥑', '🍔']`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: "`['🍝', '🍫', '🥑', '🍔']`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`['🍝', '🍕', '🍫', '🥑', '🍔']`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3728,6 +4686,7 @@ export const q109: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3741,20 +4700,28 @@ export const q110: Question = {
   code: 'JSON.parse();',
   options: [
     {
+      id: 1,
       correct: true,
       body: 'Parses JSON to a JavaScript value',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'Parses a JavaScript object to JSON',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'Parses any JavaScript value to JSON',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'Parses JSON to a JavaScript object only',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3762,6 +4729,7 @@ export const q110: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3776,20 +4744,28 @@ export const q111: Question = {
     "let name = 'Lydia';\n\nfunction getName() {\n  console.log(name);\n  let name = 'Sarah';\n}\n\ngetName();",
   options: [
     {
+      id: 1,
       correct: false,
       body: 'Lydia',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'Sarah',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3797,6 +4773,7 @@ export const q111: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3811,20 +4788,28 @@ export const q112: Question = {
     "function* generatorOne() {\n  yield ['a', 'b', 'c'];\n}\n\nfunction* generatorTwo() {\n  yield* ['a', 'b', 'c'];\n}\n\nconst one = generatorOne();\nconst two = generatorTwo();\n\nconsole.log(one.next().value);\nconsole.log(two.next().value);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`a` and `a`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`a` and `undefined`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: "`['a', 'b', 'c']` and `a`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "`a` and `['a', 'b', 'c']`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3832,6 +4817,7 @@ export const q112: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3845,20 +4831,28 @@ export const q113: Question = {
   code: "console.log(`${(x => x)('I love')} to program`);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`I love to program`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`undefined to program`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`${(x => x)('I love') to program`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3866,6 +4860,7 @@ export const q113: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3880,20 +4875,28 @@ export const q114: Question = {
     "let config = {\n  alert: setInterval(() => {\n    console.log('Alert!');\n  }, 1000),\n};\n\nconfig = null;",
   options: [
     {
+      id: 1,
       correct: false,
       body: "The `setInterval` callback won't be invoked",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: 'The `setInterval` callback gets invoked once',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: 'The `setInterval` callback will still be called every second',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'We never invoked `config.alert()`, config is `null`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3901,6 +4904,7 @@ export const q114: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3915,20 +4919,28 @@ export const q115: Question = {
     "const myMap = new Map();\nconst myFunc = () => 'greeting';\n\nmyMap.set(myFunc, 'Hello world!');\n\n//1\nmyMap.get('greeting');\n//2\nmyMap.get(myFunc);\n//3\nmyMap.get(() => 'greeting');",
   options: [
     {
+      id: 1,
       correct: false,
       body: '1',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '2',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '2 and 3',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'All of them',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3936,6 +4948,7 @@ export const q115: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3950,20 +4963,28 @@ export const q116: Question = {
     "const person = {\n  name: 'Lydia',\n  age: 21,\n};\n\nconst changeAge = (x = { ...person }) => (x.age += 1);\nconst changeAgeAndName = (x = { ...person }) => {\n  x.age += 1;\n  x.name = 'Sarah';\n};\n\nchangeAge(person);\nchangeAgeAndName();\n\nconsole.log(person);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{name: "Sarah", age: 22}`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{name: "Sarah", age: 23}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`{name: "Lydia", age: 22}`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`{name: "Lydia", age: 23}`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -3971,6 +4992,7 @@ export const q116: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -3984,20 +5006,28 @@ export const q117: Question = {
   code: 'function sumValues(x, y, z) {\n  return x + y + z;\n}',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`sumValues([...1, 2, 3])`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`sumValues([...[1, 2, 3]])`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`sumValues(...[1, 2, 3])`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`sumValues([1, 2, 3])`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4005,6 +5035,7 @@ export const q117: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4018,20 +5049,28 @@ export const q118: Question = {
   code: "let num = 1;\nconst list = ['🥳', '🤠', '🥰', '🤪'];\n\nconsole.log(list[(num += 1)]);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`🤠`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`🥰`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4039,6 +5078,7 @@ export const q118: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4053,20 +5093,28 @@ export const q119: Question = {
     "const person = {\n  firstName: 'Lydia',\n  lastName: 'Hallie',\n  pet: {\n    name: 'Mara',\n    breed: 'Dutch Tulip Hound',\n  },\n  getFullName() {\n    return `${this.firstName} ${this.lastName}`;\n  },\n};\n\nconsole.log(person.pet?.name);\nconsole.log(person.pet?.family?.name);\nconsole.log(person.getFullName?.());\nconsole.log(member.getLastName?.());",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`undefined` `undefined` `undefined` `undefined`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`Mara` `undefined` `Lydia Hallie` `ReferenceError`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Mara` `null` `Lydia Hallie` `null`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`null` `ReferenceError` `null` `ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4074,6 +5122,7 @@ export const q119: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4088,20 +5137,28 @@ export const q120: Question = {
     "const groceries = ['banana', 'apple', 'peanuts'];\n\nif (groceries.indexOf('banana')) {\n  console.log('We have to buy bananas!');\n} else {\n  console.log(`We don't have to buy bananas!`);\n}",
   options: [
     {
+      id: 1,
       correct: false,
       body: 'We have to buy bananas!',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: "We don't have to buy bananas",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`1`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4109,6 +5166,7 @@ export const q120: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4123,20 +5181,28 @@ export const q121: Question = {
     'const config = {\n  languages: [],\n  set language(lang) {\n    return this.languages.push(lang);\n  },\n};\n\nconsole.log(config.language);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`function language(lang) { this.languages.push(lang }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`0`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4144,6 +5210,7 @@ export const q121: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4158,20 +5225,28 @@ export const q122: Question = {
     "const name = 'Lydia Hallie';\n\nconsole.log(!typeof name === 'object');\nconsole.log(!typeof name === 'string');",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`false` `true`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`true` `false`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`false` `false`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`true` `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4179,6 +5254,7 @@ export const q122: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4193,20 +5269,28 @@ export const q123: Question = {
     'const add = x => y => z => {\n  console.log(x, y, z);\n  return x + y + z;\n};\n\nadd(4)(5)(6);',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`4` `5` `6`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`6` `5` `4`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`4` `function` `function`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined` `undefined` `6`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4214,6 +5298,7 @@ export const q123: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4228,20 +5313,28 @@ export const q124: Question = {
     'async function* range(start, end) {\n  for (let i = start; i <= end; i++) {\n    yield Promise.resolve(i);\n  }\n}\n\n(async () => {\n  const gen = range(1, 3);\n  for await (const item of gen) {\n    console.log(item);\n  }\n})();',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Promise {1}` `Promise {2}` `Promise {3}`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Promise {<pending>}` `Promise {<pending>}` `Promise {<pending>}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`1` `2` `3`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined` `undefined` `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4249,6 +5342,7 @@ export const q124: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4262,20 +5356,28 @@ export const q125: Question = {
   code: 'const myFunc = ({ x, y, z }) => {\n  console.log(x, y, z);\n};\n\nmyFunc(1, 2, 3);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`1` `2` `3`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{1: 1}` `{2: 2}` `{3: 3}`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`{ 1: undefined }` `undefined` `undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`undefined` `undefined` `undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4283,6 +5385,7 @@ export const q125: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4297,20 +5400,28 @@ export const q126: Question = {
     "function getFine(speed, amount) {\n  const formattedSpeed = new Intl.NumberFormat('en-US', {\n    style: 'unit',\n    unit: 'mile-per-hour'\n  }).format(speed);\n\n  const formattedAmount = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD'\n  }).format(amount);\n\n  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;\n}\n\nconsole.log(getFine(130, 300))",
   options: [
     {
+      id: 1,
       correct: false,
       body: 'The driver drove 130 and has to pay 300',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: 'The driver drove 130 mph and has to pay \\$300.00',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: 'The driver drove undefined and has to pay undefined',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'The driver drove 130.00 and has to pay 300.00',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4318,6 +5429,7 @@ export const q126: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4332,20 +5444,28 @@ export const q127: Question = {
     "const spookyItems = ['👻', '🎃', '🕸'];\n({ item: spookyItems[3] } = { item: '💀' });\n\nconsole.log(spookyItems);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`["👻", "🎃", "🕸"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`["👻", "🎃", "🕸", "💀"]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`["👻", "🎃", "🕸", { item: "💀" }]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`["👻", "🎃", "🕸", "[object Object]"]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4353,6 +5473,7 @@ export const q127: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4367,20 +5488,28 @@ export const q128: Question = {
     "const name = 'Lydia Hallie';\nconst age = 21;\n\nconsole.log(Number.isNaN(name));\nconsole.log(Number.isNaN(age));\n\nconsole.log(isNaN(name));\nconsole.log(isNaN(age));",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`true` `false` `true` `false`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`true` `false` `false` `false`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`false` `false` `true` `false`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`false` `true` `false` `true`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4388,6 +5517,7 @@ export const q128: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4402,20 +5532,28 @@ export const q129: Question = {
     "const randomValue = 21;\n\nfunction getInfo() {\n  console.log(typeof randomValue);\n  const randomValue = 'Lydia Hallie';\n}\n\ngetInfo();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`"number"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`"string"`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4423,6 +5561,7 @@ export const q129: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4437,20 +5576,28 @@ export const q130: Question = {
     "const myPromise = Promise.resolve('Woah some cool data');\n\n(async () => {\n  try {\n    console.log(await myPromise);\n  } catch {\n    throw new Error(`Oops didn't work`);\n  } finally {\n    console.log('Oh finally!');\n  }\n})();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Woah some cool data`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Oh finally!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Woah some cool data` `Oh finally!`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "`Oops didn't work` `Oh finally!`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4458,6 +5605,7 @@ export const q130: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4471,20 +5619,28 @@ export const q131: Question = {
   code: "const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];\n\nconsole.log(emojis.flat(1));",
   options: [
     {
+      id: 1,
       correct: false,
       body: "`['🥑', ['✨', '✨', ['🍕', '🍕']]]`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: "`['🥑', '✨', '✨', ['🍕', '🍕']]`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`['🥑', ['✨', '✨', '🍕', '🍕']]`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "`['🥑', '✨', '✨', '🍕', '🍕']`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4492,6 +5648,7 @@ export const q131: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4506,20 +5663,28 @@ export const q132: Question = {
     'class Counter {\n  constructor() {\n    this.count = 0;\n  }\n\n  increment() {\n    this.count++;\n  }\n}\n\nconst counterOne = new Counter();\ncounterOne.increment();\ncounterOne.increment();\n\nconst counterTwo = counterOne;\ncounterTwo.increment();\n\nconsole.log(counterOne.count);',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`0`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`1`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`2`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`3`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4527,6 +5692,7 @@ export const q132: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4541,20 +5707,28 @@ export const q133: Question = {
     "const myPromise = Promise.resolve(Promise.resolve('Promise!'));\n\nfunction funcOne() {\n  myPromise.then(res => res).then(res => console.log(res));\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nasync function funcTwo() {\n  const res = await myPromise;\n  console.log(await res);\n  setTimeout(() => console.log('Timeout!', 0));\n  console.log('Last line!');\n}\n\nfuncOne();\nfuncTwo();",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Promise! Last line! Promise! Last line! Last line! Promise!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Last line! Timeout! Promise! Last line! Timeout! Promise!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`Promise! Last line! Last line! Promise! Timeout! Timeout!`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`Last line! Promise! Promise! Last line! Timeout! Timeout!`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4562,6 +5736,7 @@ export const q133: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4576,20 +5751,28 @@ export const q134: Question = {
     "// sum.js\nexport default function sum(x) {\n  return x + x;\n}\n\n// index.js\nimport * as sum from './sum';",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`sum(4)`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`sum.sum(4)`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`sum.default(4)`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "Default aren't imported with `*`, only named exports",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4597,6 +5780,7 @@ export const q134: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4611,20 +5795,28 @@ export const q135: Question = {
     "const handler = {\n  set: () => console.log('Added a new property!'),\n  get: () => console.log('Accessed a property!'),\n};\n\nconst person = new Proxy({}, handler);\n\nperson.name = 'Lydia';\nperson.name;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`Added a new property!`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`Accessed a property!`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`Added a new property!` `Accessed a property!`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: 'Nothing gets logged',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4632,6 +5824,7 @@ export const q135: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4645,20 +5838,28 @@ export const q136: Question = {
   code: "const person = { name: 'Lydia Hallie' };\n\nObject.seal(person);",
   options: [
     {
+      id: 1,
       correct: true,
       body: '`person.name = "Evan Bacon"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`person.age = 21`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`delete person.name`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`Object.assign(person, { age: 21 })`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4666,6 +5867,7 @@ export const q136: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4680,20 +5882,28 @@ export const q137: Question = {
     "const person = {\n  name: 'Lydia Hallie',\n  address: {\n    street: '100 Main St',\n  },\n};\n\nObject.freeze(person);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`person.name = "Evan Bacon"`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`delete person.address`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`person.address.street = "101 Main St"`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`person.pet = { name: "Mara" }`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4701,6 +5911,7 @@ export const q137: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4715,20 +5926,28 @@ export const q138: Question = {
     'const add = x => x + x;\n\nfunction myFunc(num = 2, value = add(num)) {\n  console.log(num, value);\n}\n\nmyFunc();\nmyFunc(3);',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`2` `4` and `3` `6`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`2` `NaN` and `3` `NaN`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`2` `Error` and `3` `6`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`2` `4` and `3` `Error`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4736,6 +5955,7 @@ export const q138: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4750,20 +5970,28 @@ export const q139: Question = {
     'class Counter {\n  #number = 10\n\n  increment() {\n    this.#number++\n  }\n\n  getNum() {\n    return this.#number\n  }\n}\n\nconst counter = new Counter()\ncounter.increment()\n\nconsole.log(counter.#number)',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`10`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`11`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`SyntaxError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4771,6 +5999,7 @@ export const q139: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4785,20 +6014,28 @@ export const q140: Question = {
     "const teams = [\n  { name: 'Team 1', members: ['Paul', 'Lisa'] },\n  { name: 'Team 2', members: ['Laura', 'Tim'] },\n];\n\nfunction* getMembers(members) {\n  for (let i = 0; i < members.length; i++) {\n    yield members[i];\n  }\n}\n\nfunction* getTeams(teams) {\n  for (let i = 0; i < teams.length; i++) {\n    // ✨ SOMETHING IS MISSING HERE ✨\n  }\n}\n\nconst obj = getTeams(teams);\nobj.next(); // { value: \"Paul\", done: false }\nobj.next(); // { value: \"Lisa\", done: false }",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`yield getMembers(teams[i].members)`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`yield* getMembers(teams[i].members)`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`return getMembers(teams[i].members)`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`return yield getMembers(teams[i].members)`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4806,6 +6043,7 @@ export const q140: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4820,20 +6058,28 @@ export const q141: Question = {
     "const person = {\n  name: 'Lydia Hallie',\n  hobbies: ['coding'],\n};\n\nfunction addHobby(hobby, hobbies = person.hobbies) {\n  hobbies.push(hobby);\n  return hobbies;\n}\n\naddHobby('running', []);\naddHobby('dancing');\naddHobby('baking', person.hobbies);\n\nconsole.log(person.hobbies);",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`["coding"]`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`["coding", "dancing"]`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`["coding", "dancing", "baking"]`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`["coding", "running", "dancing", "baking"]`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4841,6 +6087,7 @@ export const q141: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4855,20 +6102,28 @@ export const q142: Question = {
     'class Bird {\n  constructor() {\n    console.log("I\'m a bird. 🦢");\n  }\n}\n\nclass Flamingo extends Bird {\n  constructor() {\n    console.log("I\'m pink. 🌸");\n    super();\n  }\n}\n\nconst pet = new Flamingo();',
   options: [
     {
+      id: 1,
       correct: false,
       body: "`I'm pink. 🌸`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: "`I'm pink. 🌸` `I'm a bird. 🦢`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`I'm a bird. 🦢` `I'm pink. 🌸`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "Nothing, we didn't call any method",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4876,6 +6131,7 @@ export const q142: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4890,20 +6146,28 @@ export const q143: Question = {
     "const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];\n\n/* 1 */ emojis.push('🦌');\n/* 2 */ emojis.splice(0, 2);\n/* 3 */ emojis = [...emojis, '🥂'];\n/* 4 */ emojis.length = 0;",
   options: [
     {
+      id: 1,
       correct: false,
       body: '1',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '1 and 2',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '3 and 4',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '3',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4911,6 +6175,7 @@ export const q143: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4926,20 +6191,28 @@ export const q144: Question = {
     'const person = {\n  name: "Lydia Hallie",\n  age: 21\n}\n\n[...person] // ["Lydia Hallie", 21]',
   options: [
     {
+      id: 1,
       correct: false,
       body: 'Nothing, object are iterable by default',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`*[Symbol.iterator]() { for (let x in this) yield* this[x] }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`*[Symbol.iterator]() { yield* Object.values(this) }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`*[Symbol.iterator]() { for (let x in this) yield this }`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4947,6 +6220,7 @@ export const q144: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4961,20 +6235,28 @@ export const q145: Question = {
     'let count = 0;\nconst nums = [0, 1, 2, 3];\n\nnums.forEach(num => {\n\tif (num) count += 1\n})\n\nconsole.log(count)',
   options: [
     {
+      id: 1,
       correct: false,
       body: '1',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '2',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '3',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '4',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -4982,6 +6264,7 @@ export const q145: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -4996,20 +6279,28 @@ export const q146: Question = {
     "function getFruit(fruits) {\n\tconsole.log(fruits?.[1]?.[1])\n}\n\ngetFruit([['🍊', '🍌'], ['🍍']])\ngetFruit()\ngetFruit([['🍍'], ['🍊', '🍌']])",
   options: [
     {
+      id: 1,
       correct: false,
       body: '`null`, `undefined`, 🍌',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`[]`, `null`, 🍌',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`[]`, `[]`, 🍌',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: '`undefined`, `undefined`, 🍌',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5017,6 +6308,7 @@ export const q146: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5031,20 +6323,28 @@ export const q147: Question = {
     'class Calc {\n\tconstructor() {\n\t\tthis.count = 0 \n\t}\n\n\tincrease() {\n\t\tthis.count ++\n\t}\n}\n\nconst calc = new Calc()\nnew Calc().increase()\n\nconsole.log(calc.count)',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`0`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`1`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5052,6 +6352,7 @@ export const q147: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5066,20 +6367,28 @@ export const q148: Question = {
     'const user = {\n\temail: "e@mail.com",\n\tpassword: "12345"\n}\n\nconst updateUser = ({ email, password }) => {\n\tif (email) {\n\t\tObject.assign(user, { email })\n\t}\n\n\tif (password) {\n\t\tuser.password = password\n\t}\n\n\treturn user\n}\n\nconst updatedUser = updateUser({ email: "new@email.com" })\n\nconsole.log(updatedUser === user)',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`false`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`true`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5087,6 +6396,7 @@ export const q148: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5101,20 +6411,28 @@ export const q149: Question = {
     "const fruit = ['🍌', '🍊', '🍎']\n\nfruit.slice(0, 1)\nfruit.splice(0, 1)\nfruit.unshift('🍇')\n\nconsole.log(fruit)",
   options: [
     {
+      id: 1,
       correct: false,
       body: "`['🍌', '🍊', '🍎']`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: "`['🍊', '🍎']`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: "`['🍇', '🍊', '🍎']`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: "`['🍇', '🍌', '🍊', '🍎']`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5122,6 +6440,7 @@ export const q149: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5136,20 +6455,28 @@ export const q150: Question = {
     'const animals = {};\nlet dog = { emoji: \'🐶\' }\nlet cat = { emoji: \'🐈\' }\n\nanimals[dog] = { ...dog, name: "Mara" }\nanimals[cat] = { ...cat, name: "Sara" }\n\nconsole.log(animals[dog])',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ emoji: "🐶", name: "Mara" }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: '`{ emoji: "🐈", name: "Sara" }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5157,6 +6484,7 @@ export const q150: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5171,20 +6499,28 @@ export const q151: Question = {
     'const user = {\n\temail: "my@email.com",\n\tupdateEmail: email => {\n\t\tthis.email = email\n\t}\n}\n\nuser.updateEmail("new@email.com")\nconsole.log(user.email)',
   options: [
     {
+      id: 1,
       correct: true,
       body: '`my@email.com`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`new@email.com`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`ReferenceError`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5192,6 +6528,7 @@ export const q151: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5206,20 +6543,28 @@ export const q152: Question = {
     "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))",
   options: [
     {
+      id: 1,
       correct: false,
       body: "`[['First', 'Second'], ['Fourth']]`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: "`[['First', 'Second'], ['Third', 'Fourth']]`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: "`[['First', 'Second']]`",
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: true,
       body: "`'Third'`",
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5227,6 +6572,7 @@ export const q152: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5241,20 +6587,28 @@ export const q153: Question = {
     'const keys = ["name", "age"]\nconst values = ["Lydia", 22]\n\nconst method = /* ?? */\nObject[method](keys.map((_, i) => {\n\treturn [keys[i], values[i]]\n})) // { name: "Lydia", age: 22 }',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`entries`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`values`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`fromEntries`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`forEach`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5262,6 +6616,7 @@ export const q153: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5276,20 +6631,28 @@ export const q154: Question = {
     'const createMember = ({ email, address = {}}) => {\n\tconst validEmail = /.+\\@.+\\..+/.test(email)\n\tif (!validEmail) throw new Error("Valid email pls")\n\n\treturn {\n\t\temail,\n\t\taddress: address ? address : null\n\t}\n}\n\nconst member = createMember({ email: "my@email.com" })\nconsole.log(member)',
   options: [
     {
+      id: 1,
       correct: false,
       body: '`{ email: "my@email.com", address: null }`',
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: false,
       body: '`{ email: "my@email.com" }`',
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: true,
       body: '`{ email: "my@email.com", address: {} }`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`{ email: "my@email.com", address: undefined }`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5297,6 +6660,7 @@ export const q154: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
@@ -5311,20 +6675,28 @@ export const q155: Question = {
     'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
   options: [
     {
+      id: 1,
       correct: false,
       body: "`It's not a string!`",
+      answerCount: 0,
     },
     {
+      id: 2,
       correct: true,
       body: "`Yay it's a string!`",
+      answerCount: 0,
     },
     {
+      id: 3,
       correct: false,
       body: '`TypeError`',
+      answerCount: 0,
     },
     {
+      id: 4,
       correct: false,
       body: '`undefined`',
+      answerCount: 0,
     },
   ],
   explanation:
@@ -5332,6 +6704,7 @@ export const q155: Question = {
   references: [],
   type: 'JavaScript',
   level: 'Beginner',
+  tags: [],
   author: {
     name: 'Lydia Hallie',
     url: 'https://github.com/lydiahallie/javascript-questions',
