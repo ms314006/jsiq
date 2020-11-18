@@ -21,7 +21,7 @@ export default async (req, res) => {
     }
   }
 
-  const questions = await Question.find({}).select('id');
+  const questions = await Question.find({});
 
   res.status(200).json(questions);
 };

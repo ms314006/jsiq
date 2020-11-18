@@ -10,6 +10,10 @@ export interface Question {
   references: string[];
   type: 'JavaScript' | 'React' | 'Angular' | 'Vue';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
+  author: {
+    name: string;
+    url: string;
+  }
 }
 
 export interface QuestionDocument extends Document {}
@@ -30,4 +34,8 @@ export const schemaQuestion = new Schema({
   references: [String],
   type: String,
   level: String,
+  author: {
+    name: String,
+    url: String
+  }
 });
