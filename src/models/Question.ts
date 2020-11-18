@@ -5,11 +5,12 @@ export interface Question {
   title: string;
   body?: string;
   code: string;
-  options: { body: string; correct: boolean }[];
+  options: { id: number, body: string; correct: boolean, answerCount: 0 }[];
   explanation: string;
   references: string[];
   type: 'JavaScript' | 'React' | 'Angular' | 'Vue';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
+  tags: string[],
   author: {
     name: string;
     url: string;
@@ -29,11 +30,12 @@ export const schemaQuestion = new Schema({
   },
   body: String,
   code: String,
-  options: [{ body: String, isValid: Boolean }],
+  options: [{id: Number, body: String, isValid: Boolean, answerCount: 0 }],
   explanation: String,
   references: [String],
   type: String,
   level: String,
+  tags: [String],
   author: {
     name: String,
     url: String

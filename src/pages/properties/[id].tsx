@@ -12,7 +12,7 @@ import { Layout } from "components/Layout"
 import { properties } from "utils/sample-data"
 import { GetStaticProps, GetStaticPaths } from "next"
 import { Property } from "interfaces/Property"
-import { Chakra } from "Chakra"
+import { Chakra } from "components/Chakra"
 
 const PropertyPage = ({ item }: { item: Property }) => (
   <Chakra>
