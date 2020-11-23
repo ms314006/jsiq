@@ -38,12 +38,13 @@ function HeaderContent() {
       <Flex w="100%" h="100%" px="6" align="center" justify="space-between">
         <Flex align="center">
           <NextLink href="/" passHref>
-            <chakra.a display="block" aria-label="Chakra UI, Back to homepage">
+            <chakra.a display="block" aria-label="JSIQ, Back to homepage">
               <Heading>{siteConfig.title}</Heading>
             </chakra.a>
           </NextLink>
-          <HStack as="nav" spacing="4" ml="24px" display={{ base: 'none', md: 'flex' }}>
-            <NavLink href={route.list}>List</NavLink>
+
+          <HStack as="nav" spacing="3" ml="48px" display={{ base: 'none', md: 'flex' }}>
+            <NavLink href={route.overview}>Overview</NavLink>
             <NavLink href={route.quiz}>Quiz</NavLink>
             <NavLink href={route.about}>About</NavLink>
           </HStack>
@@ -80,6 +81,7 @@ function Header(props) {
   const ref = React.useRef<HTMLHeadingElement>();
   const [y, setY] = React.useState(0);
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {};
+  const themeType = useColorModeValue('dark', 'light');
 
   const { scrollY } = useViewportScroll();
   React.useEffect(() => {
@@ -98,7 +100,7 @@ function Header(props) {
       left="0"
       right="0"
       borderTop="6px solid"
-      borderTopColor="teal.400"
+      borderTopColor={themeType === 'dark' ? 'yellow.500' : 'yellow.300'}
       width="full"
       {...props}
     >
