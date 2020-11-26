@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   chakra,
   Flex,
@@ -27,7 +27,7 @@ const GithubIcon = (props) => (
 
 function HeaderContent() {
   const mobileNav = useDisclosure();
-  const mobileNavBtnRef = React.useRef<HTMLButtonElement>();
+  const mobileNavBtnRef = useRef<HTMLButtonElement>();
 
   useUpdateEffect(() => {
     mobileNavBtnRef.current?.focus();
@@ -78,13 +78,13 @@ function HeaderContent() {
 
 function Header(props) {
   const bg = useColorModeValue('white', 'gray.800');
-  const ref = React.useRef<HTMLHeadingElement>();
-  const [y, setY] = React.useState(0);
+  const ref = useRef<HTMLHeadingElement>();
+  const [y, setY] = useState(0);
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {};
   const themeType = useColorModeValue('dark', 'light');
 
   const { scrollY } = useViewportScroll();
-  React.useEffect(() => {
+  useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);
 

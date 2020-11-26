@@ -11,7 +11,7 @@ export default function About({ cookies }: Props) {
     <Chakra cookies={cookies}>
       <Layout>
         <Box textAlign="center" fontSize="xl" mt="4.5rem">
-          <Grid minH="calc(100vh - 4.5rem)" p={3} mt="100px">
+          <Grid minH="calc(100vh - 4.5rem)" pt="50px">
             <VStack spacing={8}>
               <Heading as="h1">About</Heading>
             </VStack>
