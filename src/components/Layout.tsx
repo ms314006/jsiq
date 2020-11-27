@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Container } from '@chakra-ui/react';
 import Header from 'components/Header';
 import { siteConfig } from 'config';
+import { PageTransition } from './PageTransition';
 
 type Props = {
   children?: ReactNode;
@@ -19,7 +20,7 @@ export const Layout = ({ children, title = siteConfig.siteTitle }: Props) => (
     <Container maxWidth="1200px">
       <Header />
 
-      {children}
+      <PageTransition>{children}</PageTransition>
     </Container>
   </div>
 );
