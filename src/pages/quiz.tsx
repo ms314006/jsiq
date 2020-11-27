@@ -10,12 +10,16 @@ export default function Quiz({ cookies }: Props) {
   return (
     <Chakra cookies={cookies}>
       <Layout>
-        <Box textAlign="center" fontSize="xl" mt="4.5rem">
-          <Grid minH="calc(100vh - 4.5rem)" pt="50px">
-            <VStack spacing={8}>
-              <Heading as="h1">Quiz</Heading>
-            </VStack>
-          </Grid>
+        <Box
+          textAlign="center"
+          fontSize="xl"
+          mt="4.5rem"
+          minH="calc(100vh - 4.5rem - 101px)"
+          pt="50px"
+        >
+          <VStack spacing={8}>
+            <Heading as="h1">Quiz</Heading>
+          </VStack>
         </Box>
       </Layout>
     </Chakra>
