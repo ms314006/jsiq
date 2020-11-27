@@ -1,7 +1,7 @@
-import { Box, Text, VStack, Grid, Heading, Flex, Square, Center } from '@chakra-ui/react';
+import { Text, VStack, Heading, Flex, Center } from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
 import { Chakra } from 'components/Chakra';
-import Image from 'next/image';
+import { IconCard } from 'components/Card/IconCard';
 
 interface Props {
   cookies?: string;
@@ -18,20 +18,9 @@ export default function Home({ cookies }: Props) {
             <Text>Collection of questions that can help you improve your JavaScript knowledge</Text>
 
             <Flex justifyContent="space-between" alignItems="center" wrap="wrap">
-              <Square shadow="md" borderWidth="1px" borderRadius={6} size="200px" m={8}>
-                <Image
-                  src="/icons/javascript.svg"
-                  alt="React JS questions"
-                  width={150}
-                  height={150}
-                />
-              </Square>
-              <Square shadow="md" borderWidth="1px" borderRadius={6} size="200px" m={8}>
-                <Image src="/icons/react.svg" alt="React JS questions" width={150} height={150} />
-              </Square>
-              <Square shadow="md" borderWidth="1px" borderRadius={6} size="200px" m={8}>
-                <Image src="/icons/angular.svg" alt="React JS questions" width={150} height={150} />
-              </Square>
+              <IconCard imageSrc="/icons/javascript.svg" alt="JS questions" />
+              <IconCard imageSrc="/icons/react.svg" alt="ReactJS questions" />
+              <IconCard imageSrc="/icons/angular.svg" alt="Angular JS questions" />
             </Flex>
           </VStack>
         </Center>
