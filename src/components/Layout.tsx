@@ -4,6 +4,7 @@ import { Container } from '@chakra-ui/react';
 import Header from 'components/Header';
 import { siteConfig } from 'config';
 import { PageTransition } from './PageTransition';
+import { Footer } from './Footer';
 
 type Props = {
   children?: ReactNode;
@@ -17,10 +18,10 @@ export const Layout = ({ children, title = siteConfig.siteTitle }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Container maxWidth="1200px">
+    <Container maxWidth="1200px" h="calc(100vh - 4.5rem)">
       <Header />
-
       <PageTransition>{children}</PageTransition>
+      <Footer />
     </Container>
   </div>
 );

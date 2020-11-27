@@ -77,6 +77,7 @@ function HeaderContent() {
 }
 
 function Header(props) {
+  const bg = useColorModeValue('white', 'gray.800');
   const ref = useRef<HTMLHeadingElement>();
   const [y, setY] = useState(0);
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {};
@@ -97,6 +98,7 @@ function Header(props) {
       zIndex="1"
       left="0"
       right="0"
+      bg={bg}
       borderTop="6px solid"
       borderTopColor={themeType === 'dark' ? 'yellow.500' : 'yellow.300'}
       width="full"

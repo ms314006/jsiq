@@ -1,4 +1,4 @@
-import { Box, VStack, Grid, Heading } from '@chakra-ui/react';
+import { Box, VStack, Grid, Heading, Text } from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
 import { Chakra } from 'components/Chakra';
 
@@ -14,6 +14,11 @@ export default function About({ cookies }: Props) {
           <Grid minH="calc(100vh - 4.5rem)" pt="50px">
             <VStack spacing={8}>
               <Heading as="h1">About</Heading>
+
+              <Text>
+                I'm Mikhail Sakhniuk <br />
+                Frontend Software Developer
+              </Text>
             </VStack>
           </Grid>
         </Box>
