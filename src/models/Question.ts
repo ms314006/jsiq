@@ -5,16 +5,16 @@ export interface Question {
   title: string;
   body?: string;
   code: string;
-  options: { id: number, body: string; correct: boolean, answerCount: 0 }[];
+  options: { id: number; body: string; correct: boolean; answerCount: 0 }[];
   explanation: string;
   references: string[];
   type: 'JavaScript' | 'React' | 'Angular' | 'Vue';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
-  tags: string[],
+  tags: string[];
   author: {
     name: string;
     url: string;
-  }
+  };
 }
 
 export interface QuestionDocument extends Document {}
@@ -23,7 +23,7 @@ export const schemaQuestion = new Schema<QuestionDocument>({
   id: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   title: {
     type: String,
@@ -31,7 +31,7 @@ export const schemaQuestion = new Schema<QuestionDocument>({
   },
   body: String,
   code: String,
-  options: [{id: Number, body: String, isValid: Boolean, answerCount: 0 }],
+  options: [{ id: Number, body: String, isValid: Boolean, answerCount: 0 }],
   explanation: String,
   references: [String],
   type: String,
@@ -39,6 +39,6 @@ export const schemaQuestion = new Schema<QuestionDocument>({
   tags: [String],
   author: {
     name: String,
-    url: String
-  }
+    url: String,
+  },
 });

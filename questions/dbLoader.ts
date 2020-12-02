@@ -3,8 +3,8 @@
  */
 
 import 'dotenv/config';
-import mongoose, {model, Query} from 'mongoose';
-import { QuestionDocument, schemaQuestion } from '../src/models/Question';
+import mongoose, { model } from 'mongoose';
+import { QuestionDocument, schemaQuestion } from 'models/Question';
 import * as questions from './JS-questions';
 
 (async () => {
@@ -27,5 +27,5 @@ import * as questions from './JS-questions';
   }
 
   console.log('Done!');
-  process.exit(0)
+  process.exit(0);
 })();

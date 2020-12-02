@@ -1,34 +1,25 @@
-import { Box, VStack, Grid, Heading, Text } from '@chakra-ui/react';
+import { Box, VStack, Heading, Text } from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
-import { Chakra } from 'components/Chakra';
 
-interface Props {
-  cookies?: string;
-}
-
-export default function About({ cookies }: Props) {
+export default function About() {
   return (
-    <Chakra cookies={cookies}>
-      <Layout>
-        <Box
-          textAlign="center"
-          fontSize="xl"
-          mt="4.5rem"
-          minH="calc(100vh - 4.5rem - 101px)"
-          pt="50px"
-        >
-          <VStack spacing={8}>
-            <Heading as="h1">About</Heading>
+    <Layout>
+      <Box
+        textAlign="center"
+        fontSize="xl"
+        mt="4.5rem"
+        minH="calc(100vh - 4.5rem - 101px)"
+        pt="50px"
+      >
+        <VStack spacing={8}>
+          <Heading as="h1">About</Heading>
 
-            <Text>
-              I'm Mikhail Sakhniuk <br />
-              Frontend Software Developer
-            </Text>
-          </VStack>
-        </Box>
-      </Layout>
-    </Chakra>
+          <Text>
+            JavaScript Questions <br />
+            for prepare to Interview
+          </Text>
+        </VStack>
+      </Box>
+    </Layout>
   );
 }
-
-export { getServerSideProps } from 'components/Chakra';

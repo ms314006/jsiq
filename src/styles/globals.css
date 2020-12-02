@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.language-javascript {
+  border-radius: 10px;
+}

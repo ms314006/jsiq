@@ -4,7 +4,7 @@ import { QuestionDocument, schemaQuestion } from 'models/Question';
 let dbConnection: ReturnType<typeof createConnection> | null = null;
 let Question: Model<QuestionDocument> | null = null;
 
-export default async (req, res) => {
+const getQuestions = async (req, res) => {
   if (dbConnection === null) {
     dbConnection = mongoose.createConnection(process.env.DB_LINK, {
       useNewUrlParser: true,
@@ -25,3 +25,5 @@ export default async (req, res) => {
 
   res.status(200).json(questions);
 };
+
+export default getQuestions;
