@@ -29,7 +29,7 @@ const iconButtons = [
 ];
 
 export const Footer = () => (
-  <Box as="footer" mt={6} mb={6} textAlign="center">
+  <Box as="footer" mt={4} mb={4} textAlign="center">
     <Text fontSize="sm">
       <span>Mikhail Sakhnyuk</span>
     </Text>

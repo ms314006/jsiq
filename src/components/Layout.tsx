@@ -18,7 +18,7 @@ export const Layout = ({ children, title = siteConfig.siteTitle }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Container maxWidth="1200px" h="calc(100vh - 4.5rem)">
+    <Container maxWidth="1200px">
       <Header />
       <PageTransition>{children}</PageTransition>
       <Footer />

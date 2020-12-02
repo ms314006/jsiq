@@ -1,20 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useRef, useState } from 'react';
 import {
   chakra,
   Flex,
   Heading,
   HStack,
   Icon,
+  IconButtonProps,
   Link,
+  Center,
+  Box,
+  CloseButton,
   useColorModeValue,
   useDisclosure,
-  useUpdateEffect,
+  IconButton,
 } from '@chakra-ui/react';
 import { useViewportScroll } from 'framer-motion';
 import NextLink from 'next/link';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { siteConfig, route } from 'config';
 import { ColorModeSwitcher } from 'components/ColorModeSwitcher';
 import NavLink from './NavLink';
+import { useRouter } from 'next/router';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 20 20" {...props}>
@@ -25,13 +32,95 @@ const GithubIcon = (props) => (
   </svg>
 );
 
+const MobileNavButton = React.forwardRef((props: IconButtonProps, ref: React.Ref<any>) => {
+  return (
+    <IconButton
+      ref={ref}
+      display={{ base: 'flex', md: 'none' }}
+      aria-label="Open menu"
+      fontSize="20px"
+      color={useColorModeValue('gray.800', 'inherit')}
+      variant="ghost"
+      icon={<AiOutlineMenu />}
+      {...props}
+    />
+  );
+});
+
+function MobileNavLink({ href, children }) {
+  const { pathname } = useRouter();
+
+  const [, group] = href.split('/');
+  const isActive = pathname.includes(group);
+
+  return (
+    <NextLink href={href}>
+      <Center
+        flex="1"
+        minH="40px"
+        as="button"
+        rounded="md"
+        transition="0.2s all"
+        fontWeight={isActive ? 'semibold' : 'medium'}
+        bg={isActive ? 'teal.400' : undefined}
+        borderWidth={isActive ? undefined : '1px'}
+        color={isActive ? 'white' : undefined}
+        _hover={{
+          bg: isActive ? 'teal.500' : useColorModeValue('gray.100', 'whiteAlpha.100'),
+        }}
+      >
+        {children}
+      </Center>
+    </NextLink>
+  );
+}
+
+interface MobileNavContentProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function MobileNavContent(props: MobileNavContentProps) {
+  const { isOpen, onClose } = props;
+
+  return (
+    <>
+      {isOpen && (
+        <Flex
+          direction="column"
+          w="100%"
+          bg={useColorModeValue('white', 'gray.800')}
+          h="100vh"
+          overflow="auto"
+          pos="absolute"
+          top="0"
+          left="0"
+          zIndex={20}
+          pb="8"
+        >
+          <Box>
+            <Flex justify="space-between" px="6" pt="5" pb="4">
+              <HStack spacing="5">
+                <CloseButton onClick={onClose} />
+              </HStack>
+            </Flex>
+            <Box px="6" pb="6" pt="2">
+              <HStack>
+                <MobileNavLink href={route.overview}>Overview</MobileNavLink>
+                <MobileNavLink href={route.quiz}>Quiz</MobileNavLink>
+                <MobileNavLink href={route.about}>About</MobileNavLink>
+              </HStack>
+            </Box>
+          </Box>
+        </Flex>
+      )}
+    </>
+  );
+}
+
 function HeaderContent() {
   const mobileNav = useDisclosure();
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
-
-  useUpdateEffect(() => {
-    mobileNavBtnRef.current?.focus();
-  }, [mobileNav.isOpen]);
 
   return (
     <>
@@ -64,14 +153,15 @@ function HeaderContent() {
           </HStack>
 
           <ColorModeSwitcher />
-          {/*<MobileNavButton*/}
-          {/*  ref={mobileNavBtnRef}*/}
-          {/*  aria-label="Open Menu"*/}
-          {/*  onClick={mobileNav.onOpen}*/}
-          {/*/>*/}
+
+          <MobileNavButton
+            ref={mobileNavBtnRef}
+            aria-label="Open Menu"
+            onClick={mobileNav.onOpen}
+          />
         </Flex>
       </Flex>
-      {/*<MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />*/}
+      <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />
     </>
   );
 }

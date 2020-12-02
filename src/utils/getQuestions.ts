@@ -13,10 +13,20 @@ export function getQuestionBySlug(slug) {
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  return { data, content };
+  return { data, content } as QuestionProp;
 }
 
-export function getAllQuestions() {
-  const slugs = getQuestionSlugs();
-  return slugs.map((slug) => getQuestionBySlug(slug));
+export function getAllQuestions(): QuestionProp[] {
+  const data = getQuestionSlugs();
+  return data.map((slug) => getQuestionBySlug(slug));
+}
+
+export interface QuestionProp {
+  data: FrontMatter;
+  content: string;
+}
+
+export interface FrontMatter {
+  id: number;
+  title: string;
 }

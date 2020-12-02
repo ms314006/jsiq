@@ -1,14 +1,21 @@
-import { Box, VStack, Heading, Flex, Link as ChakraLink } from '@chakra-ui/react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import {
+  Box,
+  VStack,
+  Heading,
+  Center,
+  Link as ChakraLink,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
-import { getAllQuestions } from 'utils/getQuestions';
+import { getAllQuestions, QuestionProp } from 'utils/getQuestions';
 import Link from 'next/link';
 
 interface Props {
-  cookies?: string;
-  allPosts: any;
+  questions: QuestionProp[];
 }
 
-export default function Overview({ allPosts }: Props) {
+export default function Overview({ questions }: Props) {
   return (
     <Layout>
       <Box mt="4.5rem" minH="calc(100vh - 4.5rem - 101px)" pt="50px">
@@ -16,26 +23,37 @@ export default function Overview({ allPosts }: Props) {
           Overview
         </Heading>
 
-        <Flex>
-          <VStack spacing={8} mt={10}>
-            {allPosts.map((item) => (
+        <Center>
+          <VStack spacing={8} mt={10} align="stretch">
+            {questions.map((item) => (
               <Link key={item.data.id} href={`/overview/${item.data.id}`} passHref>
                 <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
-                  {item.data.title}
+                  <Box
+                    shadow="md"
+                    px={6}
+                    py={4}
+                    w="100%"
+                    borderRadius={10}
+                    _hover={{ shadow: 'xl' }}
+                    transition="all 0.3s"
+                    bg={useColorModeValue('white', 'gray.700')}
+                  >
+                    {item.data.id}. {item.data.title}
+                  </Box>
                 </ChakraLink>
               </Link>
             ))}
           </VStack>
-        </Flex>
+        </Center>
       </Box>
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllQuestions();
+  const questions = getAllQuestions();
 
   return {
-    props: { allPosts },
+    props: { questions },
   };
 };

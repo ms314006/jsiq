@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
-import { getAllQuestions, getQuestionBySlug } from 'utils/getQuestions';
+import { FrontMatter, getAllQuestions, getQuestionBySlug } from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -8,8 +8,8 @@ import hydrate from 'next-mdx-remote/hydrate';
 import MDXComponents from 'components/mdComponents';
 
 interface Props {
-  source: any;
-  frontMatter: any;
+  source: string;
+  frontMatter: FrontMatter;
 }
 
 export default function Overview({ source, frontMatter }: Props) {
