@@ -1,40 +1,30 @@
-import { Box, Icon, Text, Stack, Link, chakra } from '@chakra-ui/react';
+import { Box, Text, Stack } from '@chakra-ui/react';
 import { IoLogoTwitter, IoLogoLinkedin } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import { DiGithubBadge } from 'react-icons/di';
+import { LinkIconButton } from 'components/LinkIconButton';
+import { links } from 'config';
 
-type FooterLinkProps = {
-  icon?: React.ElementType;
-  href?: string;
-  label?: string;
-};
-
-const FooterLink: React.FC<FooterLinkProps> = ({ icon, href, label }) => (
-  <Link display="inline-block" href={href} aria-label={label} isExternal>
-    <Icon as={icon} fontSize="xl" color="gray.400" />
-  </Link>
-);
-
-const links = [
+const iconButtons = [
   {
     icon: DiGithubBadge,
     label: 'GitHub',
-    href: 'https://github.com/sakhnyuk',
+    href: links.github,
   },
   {
     icon: IoLogoTwitter,
     label: 'Twitter',
-    href: 'https://twitter.com/MikhailSakhnyuk',
+    href: links.twitter,
   },
   {
     icon: IoLogoLinkedin,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/mikhail-sakhniuk-96765aa8/',
+    href: links.linkedin,
   },
   {
     icon: MdEmail,
     label: 'Email',
-    href: 'mailto:sakhnyukmikhail@gmail.com',
+    href: links.email,
   },
 ];
 
@@ -43,9 +33,10 @@ export const Footer = () => (
     <Text fontSize="sm">
       <span>Mikhail Sakhnyuk</span>
     </Text>
+
     <Stack mt={2} direction="row" spacing="12px" justify="center">
-      {links.map((link) => (
-        <FooterLink key={link.href} {...link} />
+      {iconButtons.map((link) => (
+        <LinkIconButton key={link.href} {...link} />
       ))}
     </Stack>
   </Box>

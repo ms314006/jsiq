@@ -58,7 +58,7 @@ function HeaderContent() {
                 transition="color 0.2s"
                 w="5"
                 h="5"
-                _hover={{ color: 'gray.600' }}
+                _hover={{ color: useColorModeValue('gray.600', 'gray.200') }}
               />
             </Link>
           </HStack>
