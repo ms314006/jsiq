@@ -17,4 +17,5 @@ a {
 
 .language-javascript {
   border-radius: 10px;
+  overflow: scroll;
 }

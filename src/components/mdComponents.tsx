@@ -75,8 +75,6 @@ const InlineCode = (props: any) => (
 
 const CodeBlock = ({ children, className }) => {
   const language = className && className.replace(/language-/, '');
-
-  console.log(children);
   return (
     <Highlight {...defaultProps} code={children} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
