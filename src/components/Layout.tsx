@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { Container, Box, chakra } from '@chakra-ui/react';
 import Header from 'components/Header';
