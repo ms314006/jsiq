@@ -78,14 +78,14 @@ const CodeBlock = ({ children, className }) => {
   return (
     <Highlight {...defaultProps} code={children} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: '20px' }}>
+        <pre className={className} style={{ ...style, padding: '16px' }}>
           {tokens.map((line, i) => {
             if (line.length === 1 && line[0].empty) return null;
 
             return (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
+                  <chakra.span key={key} {...getTokenProps({ token, key })} fontSize={14} />
                 ))}
               </div>
             );

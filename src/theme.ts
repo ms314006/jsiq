@@ -98,6 +98,7 @@ const theme = extendTheme({
       'blockquote &': {
         mt: 0,
       },
+      fontSize: 16,
     },
     hr: {
       my: '4rem',

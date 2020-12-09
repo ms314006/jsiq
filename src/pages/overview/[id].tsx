@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react';
 import { Layout } from 'components/Layout';
 import { FrontMatter, getAllQuestions, getQuestionBySlug } from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
@@ -6,6 +5,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 
 import MDXComponents from 'components/mdComponents';
+import { Sidebar } from 'components/Sidebar/Sidebar';
 
 interface Props {
   source: string;
@@ -15,13 +15,7 @@ interface Props {
 export default function Overview({ source, frontMatter }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
-  return (
-    <Layout>
-      <Box mt="4.5rem" pt="20px">
-        {content}
-      </Box>
-    </Layout>
-  );
+  return <Layout sidebar={<Sidebar />}>{content}</Layout>;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
