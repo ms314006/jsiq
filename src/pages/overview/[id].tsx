@@ -15,21 +15,25 @@ interface Props {
 export default function Overview({ source, frontMatter }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
-  return <Layout sidebar={<Sidebar />}>{content}</Layout>;
+  return (
+    <Layout sidebar={<Sidebar />} frontMatter={frontMatter}>
+      {content}
+    </Layout>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const question: any = getQuestionBySlug(params.id);
+  const { content, data }: any = getQuestionBySlug(params.id);
 
-  const mdxSource = await renderToString(question.content, {
+  const mdxSource = await renderToString(content, {
     components: MDXComponents,
-    scope: question.data,
+    scope: data,
   });
 
   return {
     props: {
       source: mdxSource,
-      frontMatter: question.data,
+      frontMatter: data,
     },
   };
 };

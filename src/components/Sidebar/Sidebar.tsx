@@ -24,7 +24,7 @@ export const Sidebar = () => {
       pos="sticky"
       top="6.5rem"
       w="300px"
-      h="calc(((100vh - 1.5rem) - 64px) - 42px);"
+      h="100%"
       overflowY="auto"
       className="sidebar-content"
       flexShrink={0}

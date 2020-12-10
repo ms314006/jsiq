@@ -1,18 +1,20 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import Head from 'next/head';
 import { Container, Box, chakra } from '@chakra-ui/react';
 import Header from 'components/Header';
 import { siteConfig } from 'config';
 import { PageTransition } from './PageTransition';
 import { Footer } from './Footer';
+import { FrontMatter } from 'utils/getQuestions';
 
 type Props = {
   children?: ReactNode;
   title?: string;
   sidebar?: ReactNode;
+  frontMatter?: FrontMatter;
 };
 
-export const Layout = ({ children, title = siteConfig.siteTitle, sidebar }: Props) => (
+export const Layout = ({ children, title = siteConfig.siteTitle, sidebar, frontMatter }: Props) => (
   <>
     <Head>
       <title>{title}</title>
@@ -38,7 +40,7 @@ export const Layout = ({ children, title = siteConfig.siteTitle, sidebar }: Prop
             w="100%"
             flex={1}
           >
-            <PageTransition>{children}</PageTransition>
+            <PageTransition id={frontMatter?.id?.toString() || ''}>{children}</PageTransition>
           </Box>
           <Footer />
         </chakra.div>
