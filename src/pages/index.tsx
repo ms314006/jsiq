@@ -1,10 +1,10 @@
 import { Text, VStack, Heading, Flex, Center } from '@chakra-ui/react';
-import { Layout } from 'components/Layout';
+import { PageLayout } from 'components/PageLayout';
 import { IconCard } from 'components/Card/IconCard';
 
 export default function Home() {
   return (
-    <Layout>
+    <PageLayout>
       <Center textAlign="center" fontSize="xl" mt="4.5rem" minH={500}>
         <VStack spacing={8}>
           <Heading as="h1">JavaScript Interview Questions</Heading>
@@ -18,6 +18,6 @@ export default function Home() {
           </Flex>
         </VStack>
       </Center>
-    </Layout>
+    </PageLayout>
   );
 }

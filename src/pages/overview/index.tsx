@@ -6,7 +6,7 @@ import {
   Link as ChakraLink,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Layout } from 'components/Layout';
+import { PageLayout } from 'components/PageLayout';
 import { getAllQuestions, QuestionProp } from 'utils/getQuestions';
 import Link from 'next/link';
 
@@ -16,7 +16,7 @@ interface Props {
 
 export default function Overview({ questions }: Props) {
   return (
-    <Layout>
+    <PageLayout>
       <Box mt="4.5rem" minH="calc(100vh - 4.5rem - 101px)" pt="50px">
         <Heading as="h1" textAlign="center">
           Overview
@@ -45,7 +45,7 @@ export default function Overview({ questions }: Props) {
           </VStack>
         </Center>
       </Box>
-    </Layout>
+    </PageLayout>
   );
 }
 

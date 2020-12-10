@@ -6,6 +6,9 @@ const theme = extendTheme({
     heading: 'Inter, sans-serif',
     body: 'Inter, sans-serif',
   },
+  breakpoints: {
+    xxl: '100em',
+  },
   shadows: {
     search:
       '0 0 0 1px rgba(16,22,26,.1), 0 4px 8px rgba(16,22,26,.2), 0 18px 46px 6px rgba(16,22,26,.2)',

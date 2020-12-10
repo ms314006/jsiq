@@ -1,9 +1,9 @@
 import { Box, VStack, Heading, Text } from '@chakra-ui/react';
-import { Layout } from 'components/Layout';
+import { PageLayout } from 'components/PageLayout';
 
 export default function About() {
   return (
-    <Layout>
+    <PageLayout>
       <Box
         textAlign="center"
         fontSize="xl"
@@ -20,6 +20,6 @@ export default function About() {
           </Text>
         </VStack>
       </Box>
-    </Layout>
+    </PageLayout>
   );
 }

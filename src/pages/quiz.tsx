@@ -1,9 +1,9 @@
 import { Box, VStack, Heading } from '@chakra-ui/react';
-import { Layout } from 'components/Layout';
+import { PageLayout } from 'components/PageLayout';
 
 export default function Quiz() {
   return (
-    <Layout>
+    <PageLayout>
       <Box
         textAlign="center"
         fontSize="xl"
@@ -15,6 +15,6 @@ export default function Quiz() {
           <Heading as="h1">Quiz</Heading>
         </VStack>
       </Box>
-    </Layout>
+    </PageLayout>
   );
 }

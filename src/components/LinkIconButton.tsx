@@ -1,12 +1,13 @@
+import { FC, ElementType } from 'react';
 import { Icon, Link, useColorModeValue } from '@chakra-ui/react';
 
 type Props = {
-  icon?: React.ElementType;
+  icon?: ElementType;
   href?: string;
   label?: string;
 };
 
-export const LinkIconButton: React.FC<Props> = ({ icon, href, label }) => {
+export const LinkIconButton: FC<Props> = ({ icon, href, label }) => {
   return (
     <Link display="inline-block" href={href} aria-label={label} isExternal>
       <Icon

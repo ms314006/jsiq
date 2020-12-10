@@ -1,4 +1,4 @@
-import { Layout } from 'components/Layout';
+import { PageLayout } from 'components/PageLayout';
 import { FrontMatter, getAllQuestions, getQuestionBySlug } from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -6,6 +6,9 @@ import hydrate from 'next-mdx-remote/hydrate';
 
 import MDXComponents from 'components/mdComponents';
 import { Sidebar } from 'components/Sidebar/Sidebar';
+import { PrevNextNav } from 'components/PrevNextNav';
+import React from 'react';
+import { Footer } from 'components/Footer';
 
 interface Props {
   source: string;
@@ -16,9 +19,14 @@ export default function Overview({ source, frontMatter }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
   return (
-    <Layout sidebar={<Sidebar />} frontMatter={frontMatter}>
+    <PageLayout
+      sidebar={<Sidebar />}
+      pageNav={<PrevNextNav />}
+      footer={<Footer editPageHref={frontMatter.editLink} />}
+      frontMatter={frontMatter}
+    >
       {content}
-    </Layout>
+    </PageLayout>
   );
 }
 

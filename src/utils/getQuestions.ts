@@ -29,4 +29,5 @@ export interface QuestionProp {
 export interface FrontMatter {
   id: number;
   title: string;
+  editLink: string;
 }
