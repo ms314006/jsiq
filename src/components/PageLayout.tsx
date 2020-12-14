@@ -32,32 +32,21 @@ export const PageLayout = ({
 
     <Header />
 
-    <Container as="main" className="main-content" maxW="100wh">
-      <Box display={{ base: 'block', md: 'flex' }}>
-        {sidebar || null}
+    <chakra.div
+      as="main"
+      className="main-content"
+      maxW="100wh"
+      display={{ base: 'block', md: 'flex' }}
+    >
+      {sidebar || null}
 
-        <chakra.div flex={1}>
-          <Box
-            id="content"
-            pt={3}
-            px={5}
-            mt="4.5rem"
-            mx="auto"
-            ml={{ sm: 'auto', xl: 30, xxl: 40 }}
-            maxW={{
-              base: '48rem',
-              xxl: '60rem',
-            }}
-            minH="76vh"
-            // w="100%"
-            flex={1}
-          >
-            <PageTransition id={frontMatter?.id?.toString() || ''}>{children}</PageTransition>
-            {pageNav || null}
-            {footer || null}
-          </Box>
-        </chakra.div>
-      </Box>
-    </Container>
+      <chakra.div pl={4} pr={{ md: 4, xl: sidebar ? 256 : 4 }} w="100%">
+        <Container id="content" pt={3} px={5} mt="4.5rem" mx="auto" maxW="48rem" minH="76vh">
+          <PageTransition id={frontMatter?.id?.toString() || ''}>{children}</PageTransition>
+          {pageNav || null}
+          {footer || null}
+        </Container>
+      </chakra.div>
+    </chakra.div>
   </>
 );
