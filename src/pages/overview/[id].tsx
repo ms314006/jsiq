@@ -1,5 +1,5 @@
 import { PageLayout } from 'components/PageLayout';
-import { FrontMatter, getAllQuestions, getQuestionBySlug } from 'utils/getQuestions';
+import { FrontMatter, getAllQuestions, getQuestionBySlug, QuestionProp } from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -50,10 +50,10 @@ export async function getStaticPaths() {
   const questions = getAllQuestions();
 
   return {
-    paths: questions.map((item: any) => {
+    paths: questions.map((item: QuestionProp) => {
       return {
         params: {
-          id: `${item.data.id}`,
+          id: `${item.slug}`,
         },
       };
     }),

@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = join(process.cwd(), 'questions/theory-questions');
+const postsDirectory = join(process.cwd(), 'questions/theory');
 
 export function getQuestionSlugs() {
   return fs.readdirSync(postsDirectory);
@@ -13,7 +13,7 @@ export function getQuestionBySlug(slug) {
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  return { data, content } as QuestionProp;
+  return { data, content, slug: realSlug } as QuestionProp;
 }
 
 export function getAllQuestions(): QuestionProp[] {
@@ -24,6 +24,7 @@ export function getAllQuestions(): QuestionProp[] {
 export interface QuestionProp {
   data: FrontMatter;
   content: string;
+  slug: string;
 }
 
 export interface FrontMatter {

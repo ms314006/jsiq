@@ -4,12 +4,16 @@ import { RouteItem, SidebarContent } from 'components/Sidebar/SidebarContent';
 
 const routes: RouteItem[] = [
   {
+    title: 'Can you name two programming paradigms important for JavaScript app developers?',
+    path: '/overview/javascript-programming-paradigms',
+  },
+  {
     title: "What's the difference between undefined and null?",
-    path: '/overview/1',
+    path: '/overview/difference-between-undefined-and-null',
   },
   {
     title: 'What does the && operator do?\n',
-    path: '/overview/2',
+    path: '/overview/what-does-the-&&-operator-do',
   },
 ];
 

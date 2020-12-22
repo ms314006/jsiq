@@ -1,5 +1,5 @@
 ---
-id: 2 
+id: 3
 title: What does the `&&` operator do?
 editLink: https://github.com/sakhnyuk/jsiq/blob/master/questions/theory-questions/2.md
 

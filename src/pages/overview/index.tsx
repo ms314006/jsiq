@@ -25,7 +25,7 @@ export default function Overview({ questions }: Props) {
         <Center>
           <VStack spacing={8} mt={10} align="stretch">
             {questions.map((item) => (
-              <Link key={item.data.id} href={`/overview/${item.data.id}`} passHref>
+              <Link key={item.data.id} href={`/overview/${item.slug}`} passHref>
                 <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
                   <Box
                     shadow="md"
@@ -53,6 +53,6 @@ export const getStaticProps = async () => {
   const questions = getAllQuestions();
 
   return {
-    props: { questions },
+    props: { questions: questions.sort((a, b) => a.data.id - b.data.id) },
   };
 };

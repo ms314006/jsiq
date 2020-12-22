@@ -1,5 +1,5 @@
 ---
-id: 1
+id: 2
 title: What's the difference between `undefined` and `null`?
 editLink: https://github.com/sakhnyuk/jsiq/blob/master/questions/theory-questions/1.md
 
