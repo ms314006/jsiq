@@ -1,5 +1,13 @@
 import { PageLayout } from 'components/PageLayout';
-import { FrontMatter, getAllQuestions, getQuestionBySlug, QuestionProp } from 'utils/getQuestions';
+import {
+  FrontMatter,
+  getAllQuestionsMeta,
+  getQuestionBySlug,
+  NextLink,
+  PageMeta,
+  PrevLink,
+  QuestionProps,
+} from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
@@ -13,15 +21,18 @@ import { Footer } from 'components/Footer';
 interface Props {
   source: string;
   frontMatter: FrontMatter;
+  pagesMeta: PageMeta[];
+  nextLink: NextLink;
+  prevLink: PrevLink;
 }
 
-export default function Overview({ source, frontMatter }: Props) {
+export default function Overview({ source, frontMatter, nextLink, prevLink, pagesMeta }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
   return (
     <PageLayout
-      sidebar={<Sidebar />}
-      pageNav={<PrevNextNav />}
+      sidebar={<Sidebar pagesMeta={pagesMeta} />}
+      pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
       footer={<Footer editPageHref={frontMatter.editLink} />}
       frontMatter={frontMatter}
     >
@@ -31,7 +42,7 @@ export default function Overview({ source, frontMatter }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data }: any = getQuestionBySlug(params.id);
+  const { data, content, pagesMeta, nextLink, prevLink } = getQuestionBySlug(params.id as string);
 
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
@@ -42,15 +53,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      pagesMeta,
+      nextLink,
+      prevLink,
     },
   };
 };
 
 export async function getStaticPaths() {
-  const questions = getAllQuestions();
+  const questions = getAllQuestionsMeta();
 
   return {
-    paths: questions.map((item: QuestionProp) => {
+    paths: questions.map((item: FrontMatter) => {
       return {
         params: {
           id: `${item.slug}`,

@@ -1,24 +1,69 @@
 import { chakra } from '@chakra-ui/react';
 import Link from 'next/link';
 import { ArrowRight } from './ArrowRight';
+import { NextLink, PrevLink } from 'utils/getQuestions';
 import React from 'react';
 
-export const PrevNextNav = () => {
+type Props = {
+  nextLink: NextLink;
+  prevLink: PrevLink;
+};
+
+const PrevLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
+  return (
+    <chakra.a
+      py={4}
+      fontSize={20}
+      fontWeight="bold"
+      display="flex"
+      alignItems="center"
+      href={href}
+      onClick={onClick}
+      ref={ref}
+    >
+      <ArrowRight transform="rotate(180deg)" mr={1} />
+      Prev
+    </chakra.a>
+  );
+});
+
+const NextLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
+  return (
+    <chakra.a
+      py={4}
+      fontSize={20}
+      fontWeight="bold"
+      display="flex"
+      alignItems="center"
+      href={href}
+      onClick={onClick}
+      ref={ref}
+    >
+      Next
+      <ArrowRight ml={1} />
+    </chakra.a>
+  );
+});
+
+export const PrevNextNav = ({ prevLink, nextLink }: Props) => {
   return (
     <>
       <chakra.nav display="flex" alignItems="center" justifyContent="space-between" my={4}>
-        <Link href="/#" passHref>
-          <chakra.a py={4} fontSize={20} fontWeight="bold" display="flex" alignItems="center">
-            <ArrowRight transform="rotate(180deg)" mr={1} />
-            Prev
-          </chakra.a>
-        </Link>
-        <Link href="/#" passHref>
-          <chakra.a py={4} fontSize={20} fontWeight="bold" display="flex" alignItems="center">
-            Next
-            <ArrowRight ml={1} />
-          </chakra.a>
-        </Link>
+        {prevLink ? (
+          <Link href={prevLink || ''} passHref>
+            <PrevLinkButton />
+          </Link>
+        ) : (
+          <PrevLinkButton />
+        )}
+
+        {nextLink ? (
+          <Link href={nextLink || ''} passHref>
+            <NextLinkButton />
+          </Link>
+        ) : (
+          <NextLinkButton />
+        )}
       </chakra.nav>
       <hr />
     </>

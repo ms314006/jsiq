@@ -7,11 +7,11 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { PageLayout } from 'components/PageLayout';
-import { getAllQuestions, QuestionProp } from 'utils/getQuestions';
+import { getAllQuestionsMeta, FrontMatter } from 'utils/getQuestions';
 import Link from 'next/link';
 
 interface Props {
-  questions: QuestionProp[];
+  questions: FrontMatter[];
 }
 
 export default function Overview({ questions }: Props) {
@@ -25,7 +25,7 @@ export default function Overview({ questions }: Props) {
         <Center>
           <VStack spacing={8} mt={10} align="stretch">
             {questions.map((item) => (
-              <Link key={item.data.id} href={`/overview/${item.slug}`} passHref>
+              <Link key={item.id} href={`/overview/${item.slug}`} passHref>
                 <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
                   <Box
                     shadow="md"
@@ -37,7 +37,7 @@ export default function Overview({ questions }: Props) {
                     transition="all 0.3s"
                     bg={useColorModeValue('white', 'gray.700')}
                   >
-                    {item.data.id}. {item.data.title}
+                    {item.id}. {item.title}
                   </Box>
                 </ChakraLink>
               </Link>
@@ -50,9 +50,9 @@ export default function Overview({ questions }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const questions = getAllQuestions();
+  const questions = getAllQuestionsMeta();
 
   return {
-    props: { questions: questions.sort((a, b) => a.data.id - b.data.id) },
+    props: { questions },
   };
 };

@@ -1,12 +1,8 @@
 import { SidebarLink } from 'components/Sidebar/SidebarLink';
-
-export interface RouteItem {
-  title: string;
-  path?: string;
-}
+import { PageMeta } from 'utils/getQuestions';
 
 export type SidebarContentProps = {
-  routes: RouteItem[];
+  routes: PageMeta[];
   pathname?: string;
 };
 
@@ -15,7 +11,7 @@ export function SidebarContent({ routes, pathname }: SidebarContentProps) {
     <>
       {routes.map((item) => {
         return (
-          <SidebarLink as="li" key={item.path} href={item.path}>
+          <SidebarLink as="li" key={item.id} href={item.href}>
             {item.title}
           </SidebarLink>
         );
