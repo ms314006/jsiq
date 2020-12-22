@@ -62,11 +62,11 @@ function MobileNavLink({ href, children }) {
         rounded="md"
         transition="0.2s all"
         fontWeight={isActive ? 'semibold' : 'medium'}
-        bg={isActive ? 'teal.400' : undefined}
+        bg={isActive ? 'yellow.300' : undefined}
         borderWidth={isActive ? undefined : '1px'}
-        color={isActive ? 'white' : undefined}
+        color={isActive ? 'black' : undefined}
         _hover={{
-          bg: isActive ? 'teal.500' : useColorModeValue('gray.100', 'whiteAlpha.100'),
+          bg: isActive ? 'yellow.400' : useColorModeValue('gray.100', 'whiteAlpha.100'),
         }}
       >
         {children}
@@ -104,6 +104,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                 <CloseButton onClick={onClose} />
               </HStack>
             </Flex>
+
             <Box px="6" pb="6" pt="2">
               <HStack>
                 <MobileNavLink href={route.overview}>Overview</MobileNavLink>
@@ -174,6 +175,7 @@ function Header(props) {
   const themeType = useColorModeValue('dark', 'light');
 
   const { scrollY } = useViewportScroll();
+
   useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);

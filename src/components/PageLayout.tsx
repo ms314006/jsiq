@@ -40,7 +40,7 @@ export const PageLayout = ({
     >
       {sidebar || null}
 
-      <chakra.div pl={4} pr={{ md: 4, xl: sidebar ? 256 : 4 }} w="100%">
+      <chakra.div pr={{ md: 4, xl: sidebar ? 256 : 4 }} w="100%">
         <Container id="content" pt={3} px={5} mt="4.5rem" mx="auto" maxW="48rem" minH="76vh">
           <PageTransition id={frontMatter?.id?.toString() || ''}>{children}</PageTransition>
           {pageNav || null}
