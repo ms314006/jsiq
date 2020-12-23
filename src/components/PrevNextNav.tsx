@@ -9,7 +9,7 @@ type Props = {
   prevLink: PrevLink;
 };
 
-const PrevLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
+const PrevLinkButton = React.forwardRef(({ onClick, href, disabled }: any, ref: any) => {
   return (
     <chakra.a
       py={4}
@@ -20,6 +20,8 @@ const PrevLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
       href={href}
       onClick={onClick}
       ref={ref}
+      color={disabled && 'gray.400'}
+      cursor={disabled && 'not-allowed'}
     >
       <ArrowRight transform="rotate(180deg)" mr={1} />
       Prev
@@ -27,7 +29,7 @@ const PrevLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
   );
 });
 
-const NextLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
+const NextLinkButton = React.forwardRef(({ onClick, href, disabled }: any, ref: any) => {
   return (
     <chakra.a
       py={4}
@@ -38,6 +40,8 @@ const NextLinkButton = React.forwardRef(({ onClick, href }: any, ref: any) => {
       href={href}
       onClick={onClick}
       ref={ref}
+      color={disabled && 'gray.400'}
+      cursor={disabled && 'not-allowed'}
     >
       Next
       <ArrowRight ml={1} />
@@ -54,7 +58,7 @@ export const PrevNextNav = ({ prevLink, nextLink }: Props) => {
             <PrevLinkButton />
           </Link>
         ) : (
-          <PrevLinkButton />
+          <PrevLinkButton disabled />
         )}
 
         {nextLink ? (
@@ -62,7 +66,7 @@ export const PrevNextNav = ({ prevLink, nextLink }: Props) => {
             <NextLinkButton />
           </Link>
         ) : (
-          <NextLinkButton />
+          <NextLinkButton disabled />
         )}
       </chakra.nav>
       <hr />
