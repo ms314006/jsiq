@@ -18,7 +18,7 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       pos="sticky"
       top="6.5rem"
       w="300px"
-      h="100%"
+      h="calc(((100vh - 1.5rem) - 64px) - 42px);"
       pl={4}
       overflowY="auto"
       className="sidebar-content"
