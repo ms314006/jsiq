@@ -15,6 +15,7 @@ const StyledLink = React.forwardRef(function StyledLink(
       width="100%"
       px="3"
       py="1"
+      mt="2"
       rounded="md"
       ref={ref}
       fontSize="sm"
