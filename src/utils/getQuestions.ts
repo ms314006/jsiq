@@ -59,11 +59,13 @@ export function getQuestionBySlug(slug: string): QuestionProps {
   const prevQuestion = questionsData.find((item) => +item.data.id === +question.data.id - 1);
   const nextQuestion = questionsData.find((item) => +item.data.id === +question.data.id + 1);
 
-  const pagesMeta: PageMeta[] = questionsData.map(({ data }) => ({
-    id: data.id,
-    title: data.title,
-    href: `/overview/${data.slug}`,
-  }));
+  const pagesMeta: PageMeta[] = questionsData
+    .map(({ data }) => ({
+      id: data.id,
+      title: data.title,
+      href: `/overview/${data.slug}`,
+    }))
+    .sort((a, b) => +a.id - +b.id);
 
   return {
     ...question,

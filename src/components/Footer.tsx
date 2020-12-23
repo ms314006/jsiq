@@ -34,24 +34,32 @@ type Props = {
 };
 
 export const Footer = ({ editPageHref }: Props) => (
-  <Box as="footer" display="flex" alignItems="center" justifyContent="space-between">
-    <Box mt={4} mb={4} display="flex" flexDir="column" textAlign="center">
+  <Box as="footer">
+    <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Box mt={4} mb={4} display="flex" flexDir="column" textAlign="center">
+        <Text fontSize="md">
+          <span>MIT License</span>
+        </Text>
+      </Box>
+
+      {editPageHref && (
+        <Link isExternal href={editPageHref} display="flex" alignItems="center">
+          <AiOutlineEdit size={20} />
+          <chakra.span ml={2}>Edit this page</chakra.span>
+        </Link>
+      )}
+    </Box>
+
+    <Box mt={4} display="flex" flexDir="column" textAlign="center">
       <Text fontSize="md">
         <span>Mikhail Sakhnyuk</span>
       </Text>
-
-      <Stack mt={2} direction="row" spacing="12px" justify="center">
-        {iconButtons.map((link) => (
-          <LinkIconButton key={link.href} {...link} />
-        ))}
-      </Stack>
     </Box>
 
-    {editPageHref && (
-      <Link isExternal href={editPageHref} display="flex" alignItems="center">
-        <AiOutlineEdit size={20} />
-        <chakra.span ml={2}>Edit this page</chakra.span>
-      </Link>
-    )}
+    <Stack mb={10} direction="row" spacing="12px" justify="center">
+      {iconButtons.map((link) => (
+        <LinkIconButton key={link.href} {...link} />
+      ))}
+    </Stack>
   </Box>
 );
