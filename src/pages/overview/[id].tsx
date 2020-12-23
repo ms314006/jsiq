@@ -35,6 +35,7 @@ export default function Overview({ source, frontMatter, nextLink, prevLink, page
       pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
       footer={<Footer editPageHref={frontMatter.editLink} />}
       frontMatter={frontMatter}
+      pagesMeta={pagesMeta}
     >
       {content}
     </PageLayout>

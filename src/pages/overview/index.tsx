@@ -17,7 +17,7 @@ interface Props {
 export default function Overview({ questions }: Props) {
   return (
     <PageLayout>
-      <Box mt="4.5rem" minH="calc(100vh - 4.5rem - 101px)" pt="50px">
+      <Box minH="calc(100vh - 4.5rem - 101px)" mb={10}>
         <Heading as="h1" textAlign="center">
           Overview
         </Heading>

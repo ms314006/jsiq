@@ -4,7 +4,7 @@ import { Container, Box, chakra } from '@chakra-ui/react';
 import Header from 'components/Header';
 import { siteConfig } from 'config';
 import { PageTransition } from './PageTransition';
-import { FrontMatter } from 'utils/getQuestions';
+import { FrontMatter, PageMeta } from 'utils/getQuestions';
 
 type Props = {
   children?: ReactNode;
@@ -13,6 +13,7 @@ type Props = {
   pageNav?: ReactNode;
   footer?: ReactNode;
   frontMatter?: FrontMatter;
+  pagesMeta?: PageMeta[];
 };
 
 export const PageLayout = ({
@@ -22,6 +23,7 @@ export const PageLayout = ({
   pageNav,
   footer,
   frontMatter,
+  pagesMeta,
 }: Props) => (
   <>
     <Head>
@@ -30,7 +32,7 @@ export const PageLayout = ({
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    <Header />
+    <Header meta={pagesMeta} />
 
     <chakra.div
       as="main"

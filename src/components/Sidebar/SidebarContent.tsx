@@ -3,10 +3,9 @@ import { PageMeta } from 'utils/getQuestions';
 
 export type SidebarContentProps = {
   routes: PageMeta[];
-  pathname?: string;
 };
 
-export function SidebarContent({ routes, pathname }: SidebarContentProps) {
+export function SidebarContent({ routes }: SidebarContentProps) {
   return (
     <>
       {routes.map((item) => {

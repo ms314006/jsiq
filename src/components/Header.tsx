@@ -22,6 +22,8 @@ import { siteConfig, route } from 'config';
 import { ColorModeSwitcher } from 'components/ColorModeSwitcher';
 import NavLink from './NavLink';
 import { useRouter } from 'next/router';
+import { PageMeta } from 'utils/getQuestions';
+import { SidebarContent } from './Sidebar/SidebarContent';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 20 20" {...props}>
@@ -78,10 +80,11 @@ function MobileNavLink({ href, children }) {
 interface MobileNavContentProps {
   isOpen?: boolean;
   onClose?: () => void;
+  meta?: PageMeta[];
 }
 
 export function MobileNavContent(props: MobileNavContentProps) {
-  const { isOpen, onClose } = props;
+  const { isOpen, onClose, meta } = props;
 
   return (
     <>
@@ -112,6 +115,8 @@ export function MobileNavContent(props: MobileNavContentProps) {
                 <MobileNavLink href={route.about}>About</MobileNavLink>
               </HStack>
             </Box>
+
+            {meta && <SidebarContent routes={meta} />}
           </Box>
         </Flex>
       )}
@@ -119,7 +124,11 @@ export function MobileNavContent(props: MobileNavContentProps) {
   );
 }
 
-function HeaderContent() {
+type Props = {
+  meta?: PageMeta[];
+};
+
+function HeaderContent({ meta }: Props) {
   const mobileNav = useDisclosure();
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
 
@@ -162,12 +171,12 @@ function HeaderContent() {
           />
         </Flex>
       </Flex>
-      <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} />
+      <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} meta={meta} />
     </>
   );
 }
 
-function Header(props) {
+function Header({ meta }: Props) {
   const bg = useColorModeValue('white', 'gray.800');
   const ref = useRef<HTMLHeadingElement>();
   const [y, setY] = useState(0);
@@ -194,10 +203,9 @@ function Header(props) {
       borderTop="6px solid"
       borderTopColor={themeType === 'dark' ? 'yellow.500' : 'yellow.300'}
       width="full"
-      {...props}
     >
       <chakra.div height="4.5rem" mx="auto">
-        <HeaderContent />
+        <HeaderContent meta={meta} />
       </chakra.div>
     </chakra.header>
   );
