@@ -6,7 +6,6 @@ import {
   NextLink,
   PageMeta,
   PrevLink,
-  QuestionProps,
 } from 'utils/getQuestions';
 import { GetStaticProps } from 'next';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -45,9 +44,11 @@ export default function Overview({ source, frontMatter, nextLink, prevLink, page
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data, content, pagesMeta, nextLink, prevLink } = getQuestionBySlug(params.id as string);
 
+  const scope: { [key: string]: any } = data;
+
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
-    scope: data,
+    scope,
   });
 
   return {
