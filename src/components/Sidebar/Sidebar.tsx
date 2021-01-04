@@ -16,7 +16,8 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       as="nav"
       aria-label="Main Navigation"
       pos="sticky"
-      top="6.5rem"
+      top="4.5rem"
+      mt="4.5rem"
       w="300px"
       h="calc(((100vh - 1.5rem) - 64px) - 42px);"
       pl={4}

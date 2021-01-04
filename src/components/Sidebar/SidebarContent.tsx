@@ -11,7 +11,7 @@ export function SidebarContent({ routes }: SidebarContentProps) {
       {routes.map((item) => {
         return (
           <SidebarLink as="li" key={item.id} href={item.href}>
-            {item.title}
+            {item.id}. {item.title}
           </SidebarLink>
         );
       })}
