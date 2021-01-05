@@ -13,13 +13,25 @@ export default function Home() {
 
           <Wrap align="center" justify="center">
             <WrapItem>
-              <IconCard imageSrc="/icons/javascript.svg" alt="JS questions" />
+              <IconCard
+                href="/questions?type=javascript"
+                imageSrc="/icons/javascript.svg"
+                alt="JS questions"
+              />
             </WrapItem>
             <WrapItem>
-              <IconCard imageSrc="/icons/react.svg" alt="ReactJS questions" />
+              <IconCard
+                href="/questions?type=react"
+                imageSrc="/icons/react.svg"
+                alt="ReactJS questions"
+              />
             </WrapItem>
             <WrapItem>
-              <IconCard imageSrc="/icons/angular.svg" alt="Angular JS questions" />
+              <IconCard
+                href="/questions?type=angular"
+                imageSrc="/icons/angular.svg"
+                alt="Angular JS questions"
+              />
             </WrapItem>
           </Wrap>
         </VStack>

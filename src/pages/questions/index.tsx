@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   Box,
   VStack,
@@ -6,15 +7,28 @@ import {
   Link as ChakraLink,
   useColorModeValue,
 } from '@chakra-ui/react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { PageLayout } from 'components/PageLayout';
 import { getAllQuestionsMeta, FrontMatter } from 'utils/getQuestions';
-import Link from 'next/link';
 
 interface Props {
-  questions: FrontMatter[];
+  questions: {
+    javascript: FrontMatter[];
+    react: FrontMatter[];
+    angular: FrontMatter[];
+  };
 }
 
-export default function Overview({ questions }: Props) {
+export default function Questions({ questions }: Props) {
+  const router = useRouter();
+  const { type } = router.query;
+  const [questionsList, setList] = useState<FrontMatter[]>([]);
+
+  useEffect(() => {
+    setList(questions[(type as string) || 'javascript']);
+  }, [questions, type]);
+
   return (
     <PageLayout>
       <Box minH="calc(100vh - 4.5rem - 101px)" mb={10}>
@@ -24,8 +38,8 @@ export default function Overview({ questions }: Props) {
 
         <Center>
           <VStack spacing={8} mt={10} align="stretch">
-            {questions.map((item) => (
-              <Link key={item.id} href={`/overview/${item.slug}`} passHref>
+            {questionsList.map((item) => (
+              <Link key={item.id} href={`/questions/${type || 'javascript'}/${item.slug}`} passHref>
                 <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
                   <Box
                     shadow="md"
@@ -50,7 +64,11 @@ export default function Overview({ questions }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const questions = getAllQuestionsMeta();
+  const javascript = getAllQuestionsMeta('javascript');
+  const react = getAllQuestionsMeta('react');
+  const angular = getAllQuestionsMeta('angular');
+
+  const questions = { javascript, react, angular };
 
   return {
     props: { questions },

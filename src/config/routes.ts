@@ -1,6 +1,6 @@
 export const route = {
   main: '/',
-  overview: '/overview',
+  questions: '/questions',
   quiz: '/quiz',
   about: '/about',
 };

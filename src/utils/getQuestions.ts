@@ -50,10 +50,10 @@ export function getQuestionDataByFile(filename: string, type: QuestionType): Que
   return { data, content } as QuestionData;
 }
 
-export function getQuestionBySlug(slug: string): QuestionProps {
-  const data = readFilesByType('javascript');
+export function getQuestionBySlug(slug: string, type: QuestionType): QuestionProps {
+  const data = readFilesByType(type);
 
-  const questionsData = data.map((filename) => getQuestionDataByFile(filename, 'javascript'));
+  const questionsData = data.map((filename) => getQuestionDataByFile(filename, type));
   const question = questionsData.find((item) => item.data.slug === slug);
 
   const prevQuestion = questionsData.find((item) => +item.data.id === +question.data.id - 1);
@@ -63,7 +63,7 @@ export function getQuestionBySlug(slug: string): QuestionProps {
     .map(({ data }) => ({
       id: data.id,
       title: data.title,
-      href: `/overview/${data.slug}`,
+      href: `/questions/${type}/${data.slug}`,
     }))
     .sort((a, b) => +a.id - +b.id);
 
@@ -76,12 +76,12 @@ export function getQuestionBySlug(slug: string): QuestionProps {
   };
 }
 
-export function getAllQuestionsMeta() {
-  const data = readFilesByType('javascript');
+export function getAllQuestionsMeta(type: QuestionType) {
+  const data = readFilesByType(type);
 
   return data
     .map((filename) => {
-      const { data } = getQuestionDataByFile(filename, 'javascript');
+      const { data } = getQuestionDataByFile(filename, type);
       return data;
     })
     .sort((a, b) => +a.id - +b.id);
