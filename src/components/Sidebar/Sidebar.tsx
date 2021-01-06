@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Scrollbars } from 'rc-scrollbars';
 import { Box, Flex, Center, useColorModeValue, ListProps, List, ListItem } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -78,7 +78,6 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       aria-label="Main Navigation"
       pos="sticky"
       top="4.5rem"
-      mt="4.5rem"
       w="300px"
       h="calc(100vh - 5rem);"
       pl={6}
@@ -87,10 +86,10 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
     >
-      <Box overflow="auto" w="100%" h="100%">
+      <Scrollbars style={{ width: '100%', height: '100%' }} autoHide universal>
         <MainNavLinkGroup my={8} />
         <SidebarContent routes={pagesMeta} />
-      </Box>
+      </Scrollbars>
     </Box>
   );
 };
