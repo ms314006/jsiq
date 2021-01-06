@@ -1,6 +1,7 @@
 import { Text, VStack, Heading, Flex, Center, Wrap, WrapItem } from '@chakra-ui/react';
 import { PageLayout } from 'components/PageLayout';
 import { IconCard } from 'components/Card/IconCard';
+import { questionsRoutes } from 'config/routes';
 
 export default function Home() {
   return (
@@ -14,21 +15,21 @@ export default function Home() {
           <Wrap align="center" justify="center">
             <WrapItem>
               <IconCard
-                href="/questions?type=javascript"
+                href={questionsRoutes.javascript}
                 imageSrc="/icons/javascript.svg"
                 alt="JS questions"
               />
             </WrapItem>
             <WrapItem>
               <IconCard
-                href="/questions?type=react"
+                href={questionsRoutes.react}
                 imageSrc="/icons/react.svg"
                 alt="ReactJS questions"
               />
             </WrapItem>
             <WrapItem>
               <IconCard
-                href="/questions?type=angular"
+                href={questionsRoutes.angular}
                 imageSrc="/icons/angular.svg"
                 alt="Angular JS questions"
               />
