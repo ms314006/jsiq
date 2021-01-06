@@ -17,10 +17,10 @@ a {
 
 .language-javascript {
   border-radius: 10px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .language-html {
   border-radius: 10px;
-  overflow: scroll;
+  overflow: auto;
 }

@@ -82,13 +82,15 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       w="300px"
       h="calc(100vh - 5rem);"
       pl={6}
-      overflowY="auto"
+      overflow="hidden"
       className="sidebar-content"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
     >
-      <MainNavLinkGroup my={8} />
-      <SidebarContent routes={pagesMeta} />
+      <Box overflow="auto" w="100%" h="100%">
+        <MainNavLinkGroup my={8} />
+        <SidebarContent routes={pagesMeta} />
+      </Box>
     </Box>
   );
 };
