@@ -15,12 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-.language-javascript {
-  border-radius: 10px;
-  overflow: auto;
-}
-
-.language-html {
+.language-javascript, .language-html, .language-jsx, .language-typescript {
   border-radius: 10px;
   overflow: auto;
 }
