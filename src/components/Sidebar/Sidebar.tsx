@@ -1,17 +1,18 @@
 import { Scrollbars } from 'rc-scrollbars';
-import { Box, Flex, Center, useColorModeValue, ListProps, List, ListItem } from '@chakra-ui/react';
+import { Box, Flex, Center, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { SidebarContent } from 'components/Sidebar/SidebarContent';
 import { PageMeta } from 'utils/getQuestions';
 import { questionsRoutes } from 'config/routes';
 import Image from 'next/image';
+import { LanguageNavBar } from './LanguageNavBar';
 
 type Props = {
   pagesMeta: PageMeta[];
 };
 
-const MainNavLink = ({ href, icon, children }) => {
+export const MainNavLink = ({ href, icon, children }) => {
   const { pathname } = useRouter();
   const group = href.split('/')[2];
   const active = pathname.includes(group);
@@ -39,7 +40,7 @@ const MainNavLink = ({ href, icon, children }) => {
   );
 };
 
-const mainNavLinks = [
+export const mainNavLinks = [
   {
     icon: '/icons/javascript.svg',
     href: questionsRoutes.javascript,
@@ -57,20 +58,6 @@ const mainNavLinks = [
   },
 ];
 
-const MainNavLinkGroup = (props: ListProps) => {
-  return (
-    <List spacing="4" styleType="none" {...props}>
-      {mainNavLinks.map((item) => (
-        <ListItem key={item.label}>
-          <MainNavLink icon={item.icon} href={item.href}>
-            {item.label}
-          </MainNavLink>
-        </ListItem>
-      ))}
-    </List>
-  );
-};
-
 export const Sidebar = ({ pagesMeta }: Props) => {
   return (
     <Box
@@ -80,14 +67,14 @@ export const Sidebar = ({ pagesMeta }: Props) => {
       top="4.5rem"
       w="300px"
       h="calc(100vh - 5rem);"
-      pl={6}
+      pl={4}
       overflow="hidden"
       className="sidebar-content"
       flexShrink={0}
       display={{ base: 'none', md: 'block' }}
     >
       <Scrollbars style={{ width: '100%', height: '100%' }} autoHide universal>
-        <MainNavLinkGroup my={8} />
+        <LanguageNavBar my={8} />
         <SidebarContent routes={pagesMeta} />
       </Scrollbars>
     </Box>

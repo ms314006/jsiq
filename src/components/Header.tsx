@@ -14,8 +14,9 @@ import {
   useColorModeValue,
   useDisclosure,
   IconButton,
+  useUpdateEffect,
 } from '@chakra-ui/react';
-import { useViewportScroll } from 'framer-motion';
+import { AnimatePresence, useViewportScroll, motion } from 'framer-motion';
 import NextLink from 'next/link';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { siteConfig, route } from 'config';
@@ -24,6 +25,10 @@ import NavLink from './NavLink';
 import { useRouter } from 'next/router';
 import { PageMeta } from 'utils/getQuestions';
 import { SidebarContent } from './Sidebar/SidebarContent';
+import { RemoveScroll } from 'react-remove-scroll';
+import { MobileScrollView } from './Header/MobileScrollView';
+import useRouteChanged from 'hooks/useRouterChanged';
+import { LanguageNavBar } from './Sidebar/LanguageNavBar';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 20 20" {...props}>
@@ -85,42 +90,73 @@ interface MobileNavContentProps {
 
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose, meta } = props;
+  const closeBtnRef = React.useRef<HTMLButtonElement>();
+
+  useRouteChanged(onClose);
+
+  useUpdateEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        closeBtnRef.current?.focus();
+      });
+    }
+  }, [isOpen]);
+
+  const [shadow, setShadow] = React.useState<string>();
 
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
-        <Flex
-          direction="column"
-          w="100%"
-          bg={useColorModeValue('white', 'gray.800')}
-          h="100vh"
-          overflow="auto"
-          pos="absolute"
-          top="0"
-          left="0"
-          zIndex={20}
-          pb="8"
-        >
-          <Box>
-            <Flex justify="space-between" px="6" pt="5" pb="4">
-              <HStack spacing="5">
-                <CloseButton onClick={onClose} />
-              </HStack>
+        <RemoveScroll forwardProps>
+          <motion.div
+            transition={{ duration: 0.08 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Flex
+              direction="column"
+              w="100%"
+              bg={useColorModeValue('white', 'gray.800')}
+              h="100vh"
+              overflow="auto"
+              pos="absolute"
+              top="0"
+              left="0"
+              zIndex={20}
+              pb="8"
+            >
+              <Box>
+                <Flex justify="flex-end" px="6" pt="5" pb="4">
+                  <HStack spacing="5">
+                    <CloseButton ref={closeBtnRef} onClick={onClose} />
+                  </HStack>
+                </Flex>
+
+                <Box px="6" pb="6" pt="2" shadow={shadow}>
+                  <HStack>
+                    <MobileNavLink href={route.questions}>Questions</MobileNavLink>
+                    <MobileNavLink href={route.quiz}>Quiz</MobileNavLink>
+                    <MobileNavLink href={route.about}>About</MobileNavLink>
+                  </HStack>
+                </Box>
+              </Box>
+
+              {meta && (
+                <MobileScrollView
+                  onScroll={(scrolled) => {
+                    setShadow(scrolled ? 'md' : undefined);
+                  }}
+                >
+                  <LanguageNavBar my={8} />
+                  <SidebarContent routes={meta} />
+                </MobileScrollView>
+              )}
             </Flex>
-
-            <Box px="6" pb="6" pt="2">
-              <HStack>
-                <MobileNavLink href={route.questions}>Questions</MobileNavLink>
-                <MobileNavLink href={route.quiz}>Quiz</MobileNavLink>
-                <MobileNavLink href={route.about}>About</MobileNavLink>
-              </HStack>
-            </Box>
-
-            {meta && <SidebarContent routes={meta} />}
-          </Box>
-        </Flex>
+          </motion.div>
+        </RemoveScroll>
       )}
-    </>
+    </AnimatePresence>
   );
 }
 
@@ -171,6 +207,7 @@ function HeaderContent({ meta }: Props) {
           />
         </Flex>
       </Flex>
+
       <MobileNavContent isOpen={mobileNav.isOpen} onClose={mobileNav.onClose} meta={meta} />
     </>
   );

@@ -14,6 +14,7 @@ const StyledLink = React.forwardRef(function StyledLink(
       aria-current={isActive ? 'page' : undefined}
       width="100%"
       py="1"
+      px="2"
       mt="2"
       rounded="md"
       ref={ref}
