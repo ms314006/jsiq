@@ -136,7 +136,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                 <Box px="6" pb="6" pt="2" shadow={shadow}>
                   <HStack>
                     <MobileNavLink href={route.questions}>Questions</MobileNavLink>
-                    <MobileNavLink href={route.quiz}>Quiz</MobileNavLink>
+                    {/* <MobileNavLink href={route.quiz}>Quiz</MobileNavLink> */}
                     <MobileNavLink href={route.about}>About</MobileNavLink>
                   </HStack>
                 </Box>
@@ -180,7 +180,7 @@ function HeaderContent({ meta }: Props) {
 
           <HStack as="nav" spacing="3" ml="48px" display={{ base: 'none', md: 'flex' }}>
             <NavLink href={route.questions}>Questions</NavLink>
-            <NavLink href={route.quiz}>Quiz</NavLink>
+            {/* <NavLink href={route.quiz}>Quiz</NavLink> */}
             <NavLink href={route.about}>About</NavLink>
           </HStack>
         </Flex>
