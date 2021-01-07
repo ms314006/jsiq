@@ -86,7 +86,7 @@ export default function Questions({ questions }: Props) {
               <WrapItem>
                 <Link
                   key={item.id}
-                  href={`/questions/${type || 'javascript'}/${item.slug}`}
+                  href={`/questions/${language || 'javascript'}/${item.slug}`}
                   passHref
                 >
                   <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
