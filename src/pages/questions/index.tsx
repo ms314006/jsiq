@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
-  Text,
   Heading,
   Center,
   Link as ChakraLink,
@@ -9,10 +8,8 @@ import {
   Wrap,
   WrapItem,
   chakra,
-  HStack,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { PageLayout } from 'components/PageLayout';
 import { getAllQuestionsMeta, FrontMatter, QuestionType } from 'utils/getQuestions';
@@ -27,22 +24,13 @@ interface Props {
 }
 
 export default function Questions({ questions }: Props) {
-  const router = useRouter();
-  const { type } = router.query;
-  const [language, setLanguage] = useState<QuestionType>('javascript');
-  const [questionsList, setList] = useState<FrontMatter[]>([]);
-
-  const languageHandler = useCallback(
-    (typeLang: QuestionType) => {
-      setLanguage(typeLang || 'javascript');
-      setList(questions[(typeLang as string) || 'javascript']);
-    },
-    [questions],
+  const { query } = useRouter();
+  const [language, setLanguage] = useState<QuestionType>(
+    (query.type as QuestionType) || 'javascript',
   );
 
-  useEffect(() => {
-    languageHandler(type as QuestionType);
-  }, [languageHandler, type]);
+  const borderColor = useColorModeValue('gray.300', 'gray.600');
+  const bg = useColorModeValue('white', 'gray.700');
 
   return (
     <PageLayout>
@@ -54,7 +42,7 @@ export default function Questions({ questions }: Props) {
         <Wrap mt={6} align="center" justify="center">
           <WrapItem>
             <LanguageCard
-              onClick={() => languageHandler('javascript')}
+              onClick={() => setLanguage('javascript')}
               language={language}
               icon="/icons/javascript.svg"
               label="JavaScript"
@@ -63,7 +51,7 @@ export default function Questions({ questions }: Props) {
 
           <WrapItem>
             <LanguageCard
-              onClick={() => languageHandler('react')}
+              onClick={() => setLanguage('react')}
               language={language}
               icon="/icons/react.svg"
               label="React"
@@ -72,7 +60,7 @@ export default function Questions({ questions }: Props) {
 
           <WrapItem>
             <LanguageCard
-              onClick={() => languageHandler('angular')}
+              onClick={() => setLanguage('angular')}
               language={language}
               icon="/icons/angular.svg"
               label="Angular"
@@ -82,13 +70,9 @@ export default function Questions({ questions }: Props) {
 
         <Center>
           <Wrap spacing={8} mt={10} align="center" justify="center">
-            {questionsList.map((item) => (
-              <WrapItem>
-                <Link
-                  key={item.id}
-                  href={`/questions/${language || 'javascript'}/${item.slug}`}
-                  passHref
-                >
+            {questions[language].map((item) => (
+              <WrapItem key={item.id}>
+                <Link href={`/questions/${language || 'javascript'}/${item.slug}`} passHref>
                   <ChakraLink fontSize={16} display="block" aria-label="JSIQ, Back to homepage">
                     <Box
                       shadow="sm"
@@ -98,10 +82,10 @@ export default function Questions({ questions }: Props) {
                       minH={150}
                       borderRadius={4}
                       border="1px solid"
-                      borderColor={useColorModeValue('gray.300', 'gray.600')}
+                      borderColor={borderColor}
                       _hover={{ shadow: 'md' }}
                       transition="all 0.3s"
-                      bg={useColorModeValue('white', 'gray.700')}
+                      bg={bg}
                     >
                       <chakra.p fontSize="sm" fontWeight="bold">
                         {item.id}. {item.title}
