@@ -20,8 +20,6 @@ interface Props {
 export default function Question({ source, frontMatter, nextLink, prevLink, pagesMeta }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
-  console.log(frontMatter);
-
   return (
     <>
       <NextSeo title={frontMatter.title} />
