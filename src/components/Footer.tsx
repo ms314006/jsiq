@@ -4,7 +4,7 @@ import { MdEmail } from 'react-icons/md';
 import { DiGithubBadge } from 'react-icons/di';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { LinkIconButton } from 'components/LinkIconButton';
-import { links } from 'config';
+import { links, myName } from 'config';
 
 const iconButtons = [
   {
@@ -56,8 +56,8 @@ export const Footer = ({ editPageHref, authorHref }: Props) => (
     </Box>
 
     <Box mt={4} display="flex" flexDir="column" textAlign="center">
-      <Text fontSize="md">
-        <span>Mikhail Sakhnyuk</span>
+      <Text fontSize="sm" fontWeight="500">
+        {myName}
       </Text>
     </Box>
 

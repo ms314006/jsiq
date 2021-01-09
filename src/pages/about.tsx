@@ -2,7 +2,7 @@ import { Button, Box, Center, VStack, Heading, Text, Flex } from '@chakra-ui/rea
 import { FaTwitter } from 'react-icons/fa';
 import { PageLayout } from 'components/PageLayout';
 import { getAllQuestionsMeta } from 'utils/getQuestions';
-import { links } from 'config';
+import { links, myName } from 'config';
 
 type Props = {
   questionsCount: number;
@@ -31,7 +31,7 @@ export default function About({ questionsCount }: Props) {
 
           <Center py={4} flexDirection="column">
             <Text fontSize="sm">
-              Made by <b>Michael Sakhniuk</b>
+              Made by <b>{myName}</b>
             </Text>
 
             <Button
