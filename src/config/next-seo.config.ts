@@ -34,6 +34,10 @@ const config: DefaultSeoProps = {
       property: 'twitter:image',
       content: `${BASE_URL}/banner.png`,
     },
+    {
+      property: 'title',
+      content: title,
+    },
   ],
 };
 
