@@ -16,7 +16,7 @@ const config: DefaultSeoProps = {
     site_name: 'JavaScript Interview Questions',
     images: [
       {
-        url: '/banner.png',
+        url: 'https://iq.js.org/banner.png',
         width: 800,
         height: 600,
         alt: 'JSIQ banner',
