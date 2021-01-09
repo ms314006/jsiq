@@ -42,6 +42,7 @@ export default function About({ questionsCount }: Props) {
               target="_blank"
               size="xs"
               mt={2}
+              rel="noreferrer noopener"
             >
               Twitter
             </Button>

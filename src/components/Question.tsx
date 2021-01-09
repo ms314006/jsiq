@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import hydrate from 'next-mdx-remote/hydrate';
 import { PageLayout } from 'components/PageLayout';
 import { FrontMatter, NextLink, PageMeta, PrevLink } from 'utils/getQuestions';
@@ -19,6 +20,8 @@ interface Props {
 export default function Question({ source, frontMatter, nextLink, prevLink, pagesMeta }: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
+  console.log(frontMatter);
+
   return (
     <>
       <NextSeo title={frontMatter.title} />
@@ -28,6 +31,7 @@ export default function Question({ source, frontMatter, nextLink, prevLink, page
         footer={<Footer editPageHref={frontMatter.editLink} authorHref={frontMatter.original} />}
         frontMatter={frontMatter}
         pagesMeta={pagesMeta}
+        title={frontMatter.title}
       >
         {content}
       </PageLayout>

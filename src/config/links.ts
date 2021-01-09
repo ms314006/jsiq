@@ -4,3 +4,5 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/mikhail-sakhniuk-96765aa8/',
   email: 'mailto:sakhnyukmikhail@gmail.com',
 };
+
+export const BASE_URL = 'https://iq.js.org/';
