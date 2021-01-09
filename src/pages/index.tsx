@@ -10,7 +10,7 @@ export default function Home() {
         <VStack spacing={8}>
           <Heading as="h1">JavaScript Interview Questions</Heading>
 
-          <Text>Collection of questions that can help you improve your JavaScript knowledge</Text>
+          <Text>Collection of questions for Front-end developers</Text>
 
           <Wrap align="center" justify="center">
             <WrapItem>
@@ -18,6 +18,7 @@ export default function Home() {
                 href={questionsRoutes.javascript}
                 imageSrc="/icons/javascript.svg"
                 alt="JS questions"
+                title="JavaScript"
               />
             </WrapItem>
             <WrapItem>
@@ -25,13 +26,15 @@ export default function Home() {
                 href={questionsRoutes.react}
                 imageSrc="/icons/react.svg"
                 alt="ReactJS questions"
+                title="React"
               />
             </WrapItem>
             <WrapItem>
               <IconCard
                 href={questionsRoutes.angular}
                 imageSrc="/icons/angular.svg"
-                alt="Angular JS questions"
+                alt="Angular questions"
+                title="Angular"
               />
             </WrapItem>
           </Wrap>

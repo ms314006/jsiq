@@ -1,4 +1,5 @@
-import { Square } from '@chakra-ui/react';
+import { Square, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,16 +7,28 @@ type Props = {
   imageSrc: string;
   alt: string;
   href: string;
+  title: string;
 };
 
-export const IconCard = ({ imageSrc, alt, href }: Props) => {
+export const IconCard = ({ imageSrc, alt, href, title }: Props) => {
   return (
     <Link href={href} passHref>
-      <a>
-        <Square shadow="md" borderWidth="1px" borderRadius={6} size="150px" m={8}>
-          <Image src={imageSrc} alt={alt} width={100} height={100} />
+      <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <Square
+          shadow="md"
+          borderWidth="1px"
+          borderRadius={4}
+          size="150px"
+          m={4}
+          p={4}
+          flexDirection="column"
+        >
+          <Image src={imageSrc} alt={alt} width={60} height={60} />
+          <Text fontSize="xl" fontWeight="bold" mt={2}>
+            {title}
+          </Text>
         </Square>
-      </a>
+      </motion.a>
     </Link>
   );
 };
