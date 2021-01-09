@@ -16,16 +16,19 @@ const iconButtons = [
     icon: IoLogoTwitter,
     label: 'Twitter',
     href: links.twitter,
+    color: '#1DA1F2',
   },
   {
     icon: IoLogoLinkedin,
     label: 'LinkedIn',
     href: links.linkedin,
+    color: '#0077B5',
   },
   {
     icon: MdEmail,
     label: 'Email',
     href: links.email,
+    color: '#D14836',
   },
 ];
 
