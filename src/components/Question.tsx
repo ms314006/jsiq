@@ -14,20 +14,37 @@ interface Props {
   pagesMeta: PageMeta[];
   nextLink: NextLink;
   prevLink: PrevLink;
+  url: string;
 }
 
-export default function Question({ source, frontMatter, nextLink, prevLink, pagesMeta }: Props) {
+export default function Question({
+  source,
+  frontMatter,
+  nextLink,
+  prevLink,
+  pagesMeta,
+  url,
+}: Props) {
   const content = hydrate(source, { components: MDXComponents });
 
   return (
     <>
       <NextSeo
         title={frontMatter.title}
-        openGraph={{ title: frontMatter.title }}
+        canonical={url}
+        openGraph={{ title: frontMatter.title, url }}
         additionalMetaTags={[
           {
             property: 'title',
             content: frontMatter.title,
+          },
+          {
+            property: 'twitter:title',
+            content: frontMatter.title,
+          },
+          {
+            property: 'twitter:url',
+            content: url,
           },
         ]}
       />

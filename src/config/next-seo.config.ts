@@ -18,7 +18,7 @@ const config: DefaultSeoProps = {
     site_name: 'JavaScript Interview Questions',
     images: [
       {
-        url: `${BASE_URL}/banner.png`,
+        url: `${BASE_URL}banner.png`,
         width: 800,
         height: 600,
         alt: 'JSIQ banner',
@@ -31,12 +31,24 @@ const config: DefaultSeoProps = {
   },
   additionalMetaTags: [
     {
-      property: 'twitter:image',
-      content: `${BASE_URL}/banner.png`,
-    },
-    {
       property: 'title',
       content: title,
+    },
+    {
+      property: 'twitter:url',
+      content: BASE_URL,
+    },
+    {
+      property: 'twitter:image',
+      content: `${BASE_URL}banner.png`,
+    },
+    {
+      property: 'twitter:title',
+      content: title,
+    },
+    {
+      property: 'twitter:description',
+      content: description,
     },
   ],
 };

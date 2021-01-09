@@ -4,6 +4,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 
 import MDXComponents from 'components/mdComponents';
 import Question from 'components/Question';
+import { BASE_URL } from 'config/links';
 
 export default Question;
 
@@ -20,6 +21,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     scope,
   });
 
+  const url = `${BASE_URL}questions/javascript/${data.slug}`;
+
   return {
     props: {
       source: mdxSource,
@@ -27,6 +30,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       pagesMeta,
       nextLink,
       prevLink,
+      url,
     },
   };
 };
