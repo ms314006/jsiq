@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
 import hydrate from 'next-mdx-remote/hydrate';
 import { PageLayout } from 'components/PageLayout';
 import { FrontMatter, NextLink, PageMeta, PrevLink } from 'utils/getQuestions';
