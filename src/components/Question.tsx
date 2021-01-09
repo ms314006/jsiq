@@ -1,6 +1,7 @@
+import { NextSeo } from 'next-seo';
+import hydrate from 'next-mdx-remote/hydrate';
 import { PageLayout } from 'components/PageLayout';
 import { FrontMatter, NextLink, PageMeta, PrevLink } from 'utils/getQuestions';
-import hydrate from 'next-mdx-remote/hydrate';
 
 import MDXComponents from 'components/mdComponents';
 import { Sidebar } from 'components/Sidebar/Sidebar';
@@ -19,14 +20,17 @@ export default function Question({ source, frontMatter, nextLink, prevLink, page
   const content = hydrate(source, { components: MDXComponents });
 
   return (
-    <PageLayout
-      sidebar={<Sidebar pagesMeta={pagesMeta} />}
-      pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
-      footer={<Footer editPageHref={frontMatter.editLink} authorHref={frontMatter.original} />}
-      frontMatter={frontMatter}
-      pagesMeta={pagesMeta}
-    >
-      {content}
-    </PageLayout>
+    <>
+      <NextSeo title={frontMatter.title} />
+      <PageLayout
+        sidebar={<Sidebar pagesMeta={pagesMeta} />}
+        pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
+        footer={<Footer editPageHref={frontMatter.editLink} authorHref={frontMatter.original} />}
+        frontMatter={frontMatter}
+        pagesMeta={pagesMeta}
+      >
+        {content}
+      </PageLayout>
+    </>
   );
 }
