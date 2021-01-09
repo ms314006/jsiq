@@ -31,13 +31,18 @@ const iconButtons = [
 
 type Props = {
   editPageHref?: string;
+  authorHref?: string;
 };
 
-export const Footer = ({ editPageHref }: Props) => (
+export const Footer = ({ editPageHref, authorHref }: Props) => (
   <Box as="footer">
     <Box display="flex" alignItems="center" justifyContent="space-between">
-      <Box mt={4} mb={4} display="flex" flexDir="column" textAlign="center">
-        <Text fontSize="md">
+      <Box mt={4} mb={4} display="flex" flexDir="column">
+        <chakra.a href={authorHref} fontSize="xs" color="gray.500" target="_blank">
+          Author of content
+        </chakra.a>
+
+        <Text fontSize="sm">
           <span>MIT License</span>
         </Text>
       </Box>

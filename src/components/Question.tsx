@@ -22,7 +22,7 @@ export default function Question({ source, frontMatter, nextLink, prevLink, page
     <PageLayout
       sidebar={<Sidebar pagesMeta={pagesMeta} />}
       pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
-      footer={<Footer editPageHref={frontMatter.editLink} />}
+      footer={<Footer editPageHref={frontMatter.editLink} authorHref={frontMatter.original} />}
       frontMatter={frontMatter}
       pagesMeta={pagesMeta}
     >
