@@ -22,7 +22,7 @@ export default function Question({ source, frontMatter, nextLink, prevLink, page
 
   return (
     <>
-      <NextSeo title={frontMatter.title} />
+      <NextSeo title={frontMatter.title} openGraph={{ title: frontMatter.title }} />
       <PageLayout
         sidebar={<Sidebar pagesMeta={pagesMeta} />}
         pageNav={<PrevNextNav nextLink={nextLink} prevLink={prevLink} />}
