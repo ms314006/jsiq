@@ -10,7 +10,7 @@ type Props = {
 
 export default function About({ questionsCount }: Props) {
   return (
-    <PageLayout>
+    <PageLayout title="About">
       <Box textAlign="center" fontSize="xl" minH="calc(100vh - 5.5rem)">
         <Flex direction="column" align="center" justify="space-between" minH="calc(100vh - 5.5rem)">
           <VStack spacing={8} pt="50px">
