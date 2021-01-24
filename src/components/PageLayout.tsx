@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
-import { Container, Box, chakra } from '@chakra-ui/react';
+import { Container, chakra } from '@chakra-ui/react';
 import Header from 'components/Header';
+import { useSystemTheme } from 'hooks/useSystemTheme';
 import { siteConfig } from 'config';
 import { PageTransition } from './PageTransition';
 import { FrontMatter, PageMeta } from 'utils/getQuestions';
-import { useSystemTheme } from 'hooks/useSystemTheme';
 
 type Props = {
   children?: ReactNode;

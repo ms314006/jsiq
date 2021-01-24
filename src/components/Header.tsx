@@ -198,8 +198,6 @@ function HeaderContent({ meta }: Props) {
             </Link>
           </HStack>
 
-          <ColorModeSwitcher />
-
           <MobileNavButton
             ref={mobileNavBtnRef}
             aria-label="Open Menu"
