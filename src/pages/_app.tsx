@@ -1,4 +1,4 @@
-import { ChakraProvider, localStorageManager } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import theme from 'theme';
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <ChakraProvider colorModeManager={localStorageManager} theme={theme} resetCSS>
+      <ChakraProvider theme={theme} resetCSS>
         <Component {...pageProps} />
       </ChakraProvider>
     </>
