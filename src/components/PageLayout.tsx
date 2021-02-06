@@ -42,6 +42,7 @@ export const PageLayout = ({
         as="main"
         className="main-content"
         maxW="100wh"
+        minH="100vh"
         display={{ base: 'block', md: 'flex' }}
       >
         {sidebar || null}
