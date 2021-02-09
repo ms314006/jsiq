@@ -1,36 +1,6 @@
-import { Box, Text, Stack, Link, chakra } from '@chakra-ui/react';
-import { IoLogoTwitter, IoLogoLinkedin } from 'react-icons/io';
-import { MdEmail } from 'react-icons/md';
-import { DiGithubBadge } from 'react-icons/di';
+import { Box, Link, chakra } from '@chakra-ui/react';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { LinkIconButton } from 'components/LinkIconButton';
-import { links, myName } from 'config';
-
-const iconButtons = [
-  {
-    icon: DiGithubBadge,
-    label: 'GitHub',
-    href: links.github,
-  },
-  {
-    icon: IoLogoTwitter,
-    label: 'Twitter',
-    href: links.twitter,
-    color: '#1DA1F2',
-  },
-  {
-    icon: IoLogoLinkedin,
-    label: 'LinkedIn',
-    href: links.linkedin,
-    color: '#0077B5',
-  },
-  {
-    icon: MdEmail,
-    label: 'Email',
-    href: links.email,
-    color: '#D14836',
-  },
-];
+import { TwitterBlock } from 'components/TwitterBlock';
 
 type Props = {
   editPageHref?: string;
@@ -54,16 +24,6 @@ export const Footer = ({ editPageHref, authorHref }: Props) => (
       )}
     </Box>
 
-    <Box mt={4} display="flex" flexDir="column" textAlign="center">
-      <Text fontSize="sm" fontWeight="500">
-        {myName}
-      </Text>
-    </Box>
-
-    <Stack mb={10} direction="row" spacing="12px" justify="center">
-      {iconButtons.map((link) => (
-        <LinkIconButton key={link.href} {...link} />
-      ))}
-    </Stack>
+    <TwitterBlock />
   </Box>
 );

@@ -1,8 +1,7 @@
-import { Button, Box, Center, VStack, Heading, Text, Flex } from '@chakra-ui/react';
-import { FaTwitter } from 'react-icons/fa';
+import { Box, VStack, Heading, Text, Flex } from '@chakra-ui/react';
 import { PageLayout } from 'components/PageLayout';
+import { TwitterBlock } from 'components/TwitterBlock';
 import { getAllQuestionsMeta } from 'utils/getQuestions';
-import { links, myName } from 'config';
 
 type Props = {
   questionsCount: number;
@@ -29,24 +28,7 @@ export default function About({ questionsCount }: Props) {
             </Box>
           </VStack>
 
-          <Center py={4} flexDirection="column">
-            <Text fontSize="sm">
-              Made by <b>{myName}</b>
-            </Text>
-
-            <Button
-              colorScheme="twitter"
-              leftIcon={<FaTwitter />}
-              as="a"
-              href={links.twitter}
-              target="_blank"
-              size="xs"
-              mt={2}
-              rel="noreferrer noopener"
-            >
-              Twitter
-            </Button>
-          </Center>
+          <TwitterBlock />
         </Flex>
       </Box>
     </PageLayout>
