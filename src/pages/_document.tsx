@@ -9,23 +9,15 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html>
-        <Head />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />
+        <Head>
+          <script
+            async
+            defer
+            data-domain="iq.js.org"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
+        </Head>
+
         <body>
           <ColorModeScript initialColorMode="system" />
           <Main />
